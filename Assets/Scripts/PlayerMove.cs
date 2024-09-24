@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public Rigidbody2D rgbd2d;
+    public Animate animate;
     public float mvtSpd;
     private Vector2 mvt;
     
@@ -16,6 +17,8 @@ public class PlayerMove : MonoBehaviour
     {
         mvt.x = Input.GetAxisRaw("Horizontal");
         mvt.y = Input.GetAxisRaw("Vertical");
+        
+        animate.horizontal = mvt.x;
         mvt.Normalize();
         
         rgbd2d.velocity = mvt * mvtSpd;
