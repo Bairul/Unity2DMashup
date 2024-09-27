@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rgbd2d: {fileID: 192273035}
   animate: {fileID: 192273036}
-  mvtSpd: 2
+  mvtSpd: 4
 --- !u!4 &192273034
 Transform:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1193083236}
   horizontal: 0
+  vertical: 0
 --- !u!1001 &381585025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -332,7 +333,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.175259
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -382,8 +383,8 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
+    m_Style: 6
+    m_Time: 4
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -524,7 +525,7 @@ MonoBehaviour:
   m_Follow: {fileID: 192273034}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 3.175259
+    OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -570,7 +571,7 @@ GameObject:
   - component: {fileID: 1193083235}
   - component: {fileID: 1193083236}
   m_Layer: 0
-  m_Name: spriteshadowless_0
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,8 +585,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193083233}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0.14, z: -0.054680496}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -632,12 +633,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -631053903, guid: f3fc0d56aa2376948bc17f8e186624ed, type: 3}
+  m_Sprite: {fileID: -1481953313, guid: e6e299d3d447b9e439c21ba3e016e2b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.9375, y: 1.40625}
+  m_Size: {x: 1.75, y: 1.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

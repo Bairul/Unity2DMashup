@@ -5,11 +5,13 @@ using UnityEngine;
 public class Animate : MonoBehaviour
 {
     public Animator animator;
-    public float horizontal;
+    public int horizontal;
+    public int vertical;
 
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Horizontal", horizontal);
+        animator.SetInteger("Vertical", vertical);
+        animator.SetInteger("Horizontal", horizontal);
     }
 }

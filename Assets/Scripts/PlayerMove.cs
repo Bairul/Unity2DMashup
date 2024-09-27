@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,8 @@ public class PlayerMove : MonoBehaviour
         mvt.x = Input.GetAxisRaw("Horizontal");
         mvt.y = Input.GetAxisRaw("Vertical");
         
-        animate.horizontal = mvt.x;
+        animate.horizontal = (int) mvt.x;
+        animate.vertical = (int) mvt.y;
         mvt.Normalize();
         
         rgbd2d.velocity = mvt * mvtSpd;
