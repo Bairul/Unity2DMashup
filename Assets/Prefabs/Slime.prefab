@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4075179120784111284}
   m_Layer: 0
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,10 +76,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794ff363af87ee9428d54f914fc7e183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   animate: {fileID: 4075179120784111284}
-  mvtSpd: 2
   rgbd2d: {fileID: 1894156628906971935}
+  mvtSpd: 0
 --- !u!114 &4075179120784111284
 MonoBehaviour:
   m_ObjectHideFlags: 0

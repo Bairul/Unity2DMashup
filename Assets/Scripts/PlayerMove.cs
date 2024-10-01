@@ -7,11 +7,17 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public Rigidbody2D rgbd2d;
-    public Animate animate;
+    [SerializeField]
+    private Rigidbody2D rgbd2d;
+    [SerializeField]
+    private Animate animate;
+    [SerializeField]
+    private Transform playerHitbox;
+    [SerializeField]
+    private Transform playerFeetbox;
     public float mvtSpd;
     private Vector2 mvt;
-    
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -24,5 +30,13 @@ public class PlayerMove : MonoBehaviour
         mvt.Normalize();
         
         rgbd2d.velocity = mvt * mvtSpd;
+
+        if (animate.horizontal < 0) {
+            playerHitbox.localScale = new Vector3(-1f, 1f, 1f);
+            playerFeetbox.localScale = new Vector3(-1f, 1f, 1f);
+        } else if (animate.horizontal > 0) {
+            playerHitbox.localScale = new Vector3(1f, 1f, 1f);
+            playerFeetbox.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 }
