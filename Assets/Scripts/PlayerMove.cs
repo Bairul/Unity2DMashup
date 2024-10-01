@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         mvt.x = Input.GetAxisRaw("Horizontal");
         mvt.y = Input.GetAxisRaw("Vertical");
