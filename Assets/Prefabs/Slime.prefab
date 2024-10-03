@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4067615310934744099}
   - component: {fileID: 1894156628906971935}
   - component: {fileID: 3906015957096506288}
-  - component: {fileID: 4075179120784111284}
+  - component: {fileID: 7634124660022763632}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -76,10 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794ff363af87ee9428d54f914fc7e183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animate: {fileID: 4075179120784111284}
+  animate: {fileID: 7634124660022763632}
   rgbd2d: {fileID: 1894156628906971935}
-  mvtSpd: 0
---- !u!114 &4075179120784111284
+  mvtSpd: 2
+--- !u!114 &7634124660022763632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,12 +88,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1679519766998266750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc1d9cc6532de4d46887f2d670d759c8, type: 3}
+  m_Script: {fileID: 11500000, guid: bfb2403b396ce4244a238d2bd91b1aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1334337667275035254}
   horizontal: 0
-  vertical: 0
+  attack: 0
 --- !u!1 &2553275270892128938
 GameObject:
   m_ObjectHideFlags: 0

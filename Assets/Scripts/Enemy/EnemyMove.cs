@@ -10,9 +10,10 @@ using UnityEngine.TextCore.Text;
 public class EnemyMove : MonoBehaviour
 {
     [SerializeField]
-    private Animate animate;
+    private EnemyAnimate animate;
     [SerializeField]
     private Rigidbody2D rgbd2d;
+    private Vector2 mvt;
     public float mvtSpd = 2f; // Movement speed of the enemy
     private Transform player; // Reference to the player
 
@@ -20,23 +21,33 @@ public class EnemyMove : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
+    void Update() {
+        mvt = player.position - transform.position;
+        animate.horizontal = (int) mvt.x;
+    }
+
     void FixedUpdate()
     {
-        // Calculate direction to the player
-        Vector2 direction = player.position - transform.position;
+        mvt.Normalize();
 
-        animate.horizontal = (int) direction.x;
-        direction.Normalize();
-
-        rgbd2d.velocity = direction * mvtSpd;
+        if (!animate.attack)
+        {
+            rgbd2d.velocity = mvt * mvtSpd;
+        }
     }
 
     void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            animate.attack = true;
             Attack();
         }
+    }
+
+    void OnCollisionExit2D()
+    {
+        animate.attack = false;
     }
 
     private void Attack()

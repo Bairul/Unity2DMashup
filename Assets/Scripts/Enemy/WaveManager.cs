@@ -37,11 +37,17 @@ public class WaveManager : MonoBehaviour
         minBounds = restrictedTilemap.CellToWorld(bounds.min);
         maxBounds = restrictedTilemap.CellToWorld(bounds.max);
 
+        if (waves.Length <= 0) {
+            isSpawning = false;
+        }
+
         StartCoroutine(SpawnEnemies());
     }
 
     void Update()
     {
+        if (!isSpawning) return;
+        
         waveTimer += Time.deltaTime;
 
         // Check if the current wave is complete (either by kill count or time)
