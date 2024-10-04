@@ -5,19 +5,29 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class PlayerMove : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    private static Vector3 LEFT = new Vector3(-1f, 1f, 1f);
+    private static Vector3 RIGHT = new Vector3(1f, 1f, 1f);
+
+    [SerializeField]
+    private PlayerStats playerStats;
+
     [SerializeField]
     private Rigidbody2D rgbd2d;
+
     [SerializeField]
     private PlayerAnimate animate;
+
     [SerializeField]
     private Transform playerHitbox;
+
     [SerializeField]
     private Transform playerFeetbox;
+
     [SerializeField]
     private MouseIndicator mouseIndicator;
-    public float mvtSpd;
+
     private Vector2 mvt;
 
     // Update is called once per frame
@@ -30,19 +40,18 @@ public class PlayerMove : MonoBehaviour
 
         animate.mouseRight = mouseIndicator.mousePos.x - transform.position.x >= 0;
 
-        // if (animate.horizontal < 0) {
-        //     playerHitbox.localScale = new Vector3(-1f, 1f, 1f);
-        //     playerFeetbox.localScale = new Vector3(-1f, 1f, 1f);
-        // } else if (animate.horizontal > 0) {
-        //     playerHitbox.localScale = new Vector3(1f, 1f, 1f);
-        //     playerFeetbox.localScale = new Vector3(1f, 1f, 1f);
-        // }
+        if (animate.horizontal < 0) {
+            playerHitbox.localScale = LEFT;
+            playerFeetbox.localScale = LEFT;
+        } else if (animate.horizontal > 0) {
+            playerHitbox.localScale = RIGHT;
+            playerFeetbox.localScale = RIGHT;
+        }
     }
     
     // FixedUpdate is called at fixed intervals
     void FixedUpdate()
     {
-        mvt.Normalize();
-        rgbd2d.velocity = mvt * mvtSpd;
+        rgbd2d.velocity = mvt.normalized * playerStats.currentMovementSpeed;
     }
 }

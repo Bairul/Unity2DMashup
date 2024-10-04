@@ -5,29 +5,29 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
-    public GameObject prefab;
-    public float speed;
-    public float cooldownDuration;
-    public float currentCooldown;
+    [SerializeField]
+    protected AttackStats attackStats;
+
+    [SerializeField]
+    protected PlayerStats playerStats;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        currentCooldown = cooldownDuration;
+        
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        currentCooldown -= Time.deltaTime;
-        if (currentCooldown <= 0f)
+        if (attackStats.CanAttack())
         {
-            Attack();
+            LaunchAttack();
         }
     }
 
-    protected virtual private void Attack()
+    protected virtual private void LaunchAttack()
     {
-        currentCooldown = cooldownDuration;
+
     }
 }

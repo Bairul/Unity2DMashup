@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5679423286430785616}
   - component: {fileID: 4459270841079917818}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,8 @@ GameObject:
   - component: {fileID: 886584582777298317}
   - component: {fileID: 6527044343014587269}
   - component: {fileID: 7879321059239472849}
-  m_Layer: 0
+  - component: {fileID: 8557822597089532652}
+  m_Layer: 3
   m_Name: ArcaneBoltSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55c52fd4f6c9ef4184f77d925176962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyAfterSeconds: 4
+  attackStats: {fileID: 8557822597089532652}
 --- !u!61 &7879321059239472849
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -238,6 +239,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31, y: 0.31}
   m_EdgeRadius: 0
+--- !u!114 &8557822597089532652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4004796502006310097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c2528abc86cc940a81e6c93f5ce2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseData: {fileID: 11400000, guid: eee090bc86679814f91daab5dde91c03, type: 2}
+  currentSpeed: 0
+  currentPierce: 0
+  currentDamage: 0
+  currentCooldown: 1.0551552
 --- !u!1 &6007934789191599385
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +267,7 @@ GameObject:
   - component: {fileID: 2383182668713151140}
   - component: {fileID: 7202903625487108357}
   - component: {fileID: 5130409978509989344}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

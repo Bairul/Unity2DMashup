@@ -7,14 +7,18 @@ using UnityEngine.TextCore.Text;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class EnemyMove : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     [SerializeField]
     private EnemyAnimate animate;
+
     [SerializeField]
     private Rigidbody2D rgbd2d;
+
+    [SerializeField]
+    private EnemyStats stats;
+
     private Vector2 mvt;
-    public float mvtSpd = 2f; // Movement speed of the enemy
     private Transform player; // Reference to the player
 
     void Start() {
@@ -28,11 +32,9 @@ public class EnemyMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        mvt.Normalize();
-
         if (!animate.attack)
         {
-            rgbd2d.velocity = mvt * mvtSpd;
+            rgbd2d.velocity = mvt.normalized * stats.currentMovementSpeed;
         }
     }
 

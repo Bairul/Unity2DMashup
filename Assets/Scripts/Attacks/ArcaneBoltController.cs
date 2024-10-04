@@ -11,10 +11,10 @@ public class ArcaneBoltController : AttackController
         base.Start();
     }
 
-    private protected override void Attack()
+    private protected override void LaunchAttack()
     {
-        base.Attack();
-        GameObject arcaneBolt = Instantiate(prefab);
+        base.LaunchAttack();
+        GameObject arcaneBolt = Instantiate(attackStats.baseData.Prefab);
         arcaneBolt.transform.position = transform.position;
         arcaneBolt.GetComponent<ArcaneBoltBehavior>().DirectionChecker((target.position - transform.position).normalized);
     }

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1894156628906971935}
   - component: {fileID: 3906015957096506288}
   - component: {fileID: 7634124660022763632}
+  - component: {fileID: 5373315868992940500}
   m_Layer: 0
   m_Name: Slime
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1679519766998266750}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.148, y: -0.23, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animate: {fileID: 7634124660022763632}
   rgbd2d: {fileID: 1894156628906971935}
-  mvtSpd: 2
+  stats: {fileID: 5373315868992940500}
 --- !u!114 &7634124660022763632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +95,22 @@ MonoBehaviour:
   animator: {fileID: 1334337667275035254}
   horizontal: 0
   attack: 0
+--- !u!114 &5373315868992940500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679519766998266750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f2045d7be9c964fb7afe7c35ffcac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseData: {fileID: 11400000, guid: 88a589c5cab85834ea8e527b0c1f12d2, type: 2}
+  currentMovementSpeed: 0
+  currentHealth: 0
+  currentDamage: 0
 --- !u!1 &2553275270892128938
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +306,7 @@ GameObject:
   - component: {fileID: 2832362541676018902}
   m_Layer: 3
   m_Name: HitboxCollider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

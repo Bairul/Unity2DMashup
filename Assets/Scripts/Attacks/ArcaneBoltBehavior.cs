@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArcaneBoltBehavior : AttackBehavior
+public class ArcaneBoltBehavior : ProjectileBehavior
 {
-    ArcaneBoltController controller;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        controller = FindObjectOfType<ArcaneBoltController>();
     }
 
     void FixedUpdate() {
-        transform.position += controller.speed * Time.deltaTime * direction;
+        transform.position += attackStats.currentSpeed * Time.deltaTime * direction;
     }
 }
