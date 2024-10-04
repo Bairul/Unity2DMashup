@@ -18,12 +18,14 @@ public class ProjectileBehavior : MonoBehaviour
     protected virtual void OnTriggerEnter2D(Collider2D collider) {
         if (collider.CompareTag("Enemy"))
         {
-            Debug.Log("Hit");
+            EnemyStats enemy = collider.GetComponentInParent<EnemyStats>();
+            enemy.TakeDamage(attackStats.currentDamage);
+            attackStats.ReducePierce();
         }
     }
 
     public void DirectionChecker(Vector3 dir) {
-        direction = dir;
+        direction = new (dir.x, dir.y, dir.z);
     }
 
     public void DamageMultiplier() {

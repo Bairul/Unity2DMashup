@@ -20,7 +20,8 @@ public class AttackStats : MonoBehaviour
         currentCooldown = baseData.CooldownDuration;
     }
 
-    public bool CanAttack() {
+    public bool CanAttack() 
+    {
         currentCooldown -= Time.deltaTime;
         if (currentCooldown <= 0f)
         {
@@ -30,7 +31,17 @@ public class AttackStats : MonoBehaviour
         return false;
     }
 
-    public void ResetCooldown() {
+    public void ResetCooldown() 
+    {
         currentCooldown = baseData.CooldownDuration;
+    }
+
+    public void ReducePierce() 
+    {
+        currentPierce--;
+        if (currentPierce <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

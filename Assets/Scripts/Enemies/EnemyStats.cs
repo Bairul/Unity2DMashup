@@ -11,8 +11,6 @@ public class EnemyStats : MonoBehaviour
     public float currentHealth;
     public float currentDamage;
 
-
-    // Start is called before the first frame update
     void Awake()
     {
         currentMovementSpeed = baseData.MovementSpeed;

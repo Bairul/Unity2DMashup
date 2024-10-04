@@ -54,6 +54,6 @@ public class EnemyController : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attacking");
+        // Debug.Log("Attacking");
     }
 }

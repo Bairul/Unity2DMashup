@@ -6,20 +6,25 @@ using UnityEngine.Tilemaps;
 public class WaveManager : MonoBehaviour
 {
     [SerializeField]
-    private EnemyWave[] waves;        // List of waves
+    private EnemyWave[] waves;               // List of waves
+
     [SerializeField]
-    private Tilemap restrictedTilemap;
+    private Tilemap restrictedTilemap;       // Tilemap of tiles to not spawn enemies
+
     [SerializeField]
-    private float spawnInterval = 2f; // Time between enemy spawns
+    private float spawnInterval = 2f;        // Time between enemy spawns
+
     private int currentWaveIndex = 0;
     private int killCount = 0;
     private float waveTimer = 0f;
     private bool isSpawning = true;
 
     [SerializeField]
-    private Camera mainCamera;        // Reference to the main camera
+    private Camera mainCamera;               // Reference to the main camera
+
     [SerializeField]
     private float spawnOutsideDistance = 5f; // Distance from the camera's edge to spawn enemies
+
     private float cameraHeight;
     private float cameraWidth;
     private Vector3 minBounds;       // Bottom-left corner of the tilemap in world coordinates

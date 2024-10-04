@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &234992104 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-  m_PrefabInstance: {fileID: 698730707}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &381585025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -452,63 +447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &698730707
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1679519766998266750, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_Name
-      value: Slime
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067615310934744099, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
 --- !u!1 &970277415
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,9 +476,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501b194bb13e54847be153b8b6d3cf2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - enemyPrefabs:
+    - {fileID: 1679519766998266750, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
+    spawnWeights: 01000000
+    killCountThreshold: 100
+    timeLimit: 100
+    totalEnemiesToSpawn: 10
   restrictedTilemap: {fileID: 2033774089}
-  spawnInterval: 5
+  spawnInterval: 2
   mainCamera: {fileID: 519420031}
   spawnOutsideDistance: 5
 --- !u!4 &970277417
@@ -676,7 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackStats: {fileID: 8557822597089532652, guid: b70417f3a3a828a4c9651c0d0209f977, type: 3}
   playerStats: {fileID: 9195751053264895492}
-  target: {fileID: 234992104}
+  mouseIndicator: {fileID: 5695903795164071931}
 --- !u!114 &1886013078562265313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,6 +946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseDir: {x: 0, y: 0, z: 0}
 --- !u!1 &6384773978461936565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,4 +1170,3 @@ SceneRoots:
   - {fileID: 381585025}
   - {fileID: 1065843310}
   - {fileID: 970277417}
-  - {fileID: 698730707}

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ArcaneBoltController : AttackController
 {
-    public Transform target;
+    [SerializeField]
+    private MouseIndicator mouseIndicator;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -16,6 +18,8 @@ public class ArcaneBoltController : AttackController
         base.LaunchAttack();
         GameObject arcaneBolt = Instantiate(attackStats.baseData.Prefab);
         arcaneBolt.transform.position = transform.position;
-        arcaneBolt.GetComponent<ArcaneBoltBehavior>().DirectionChecker((target.position - transform.position).normalized);
+        
+        Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
+        arcaneBolt.GetComponent<ArcaneBoltBehavior>().DirectionChecker(toMouse.normalized);
     }
 }
