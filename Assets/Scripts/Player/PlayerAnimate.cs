@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimate : MonoBehaviour
@@ -9,7 +7,6 @@ public class PlayerAnimate : MonoBehaviour
     public int vertical;
     public bool mouseRight;
 
-    // Update is called once per frame
     void Update()
     {
         animator.SetInteger("Vertical", vertical);

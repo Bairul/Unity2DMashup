@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseIndicator : MonoBehaviour
@@ -9,9 +6,7 @@ public class MouseIndicator : MonoBehaviour
     private Camera mainCamera;
     public Vector3 mousePos;
     public Vector3 mouseDir;
-    // Start is called before the first frame update
 
-    // Update is called once per frame
     void Update()
     {
         mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);

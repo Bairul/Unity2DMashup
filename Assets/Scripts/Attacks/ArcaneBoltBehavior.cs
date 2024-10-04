@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Moves straight in a direction
+/// </summary>
 public class ArcaneBoltBehavior : ProjectileBehavior
 {
-    // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();

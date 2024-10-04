@@ -1,8 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Base script for all attack controllers
+/// </summary>
 public class AttackController : MonoBehaviour
 {
     [SerializeField]
@@ -11,13 +11,11 @@ public class AttackController : MonoBehaviour
     [SerializeField]
     protected PlayerStats playerStats;
 
-    // Start is called before the first frame update
     protected virtual void Start()
     {
         
     }
 
-    // Update is called once per frame
     protected virtual void Update()
     {
         if (attackStats.CanAttack())

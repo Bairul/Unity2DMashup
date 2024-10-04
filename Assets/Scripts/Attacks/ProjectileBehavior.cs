@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Put behaviors in the attack's prefab
+/// </summary>
 public class ProjectileBehavior : MonoBehaviour
 {
     [SerializeField]
     protected AttackStats attackStats;
     protected Vector3 direction;
 
-
-    // Start is called before the first frame update
     protected virtual void Start()
     {
         Destroy(gameObject, attackStats.baseData.Lifespan);

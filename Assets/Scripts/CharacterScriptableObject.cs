@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="CharacterScriptableObject", menuName ="ScriptableObjects/Character")]
@@ -9,7 +7,7 @@ public class CharacterScriptableObject : ScriptableObject
     private GameObject startingSkill;
     public GameObject StartingSkill { get => startingSkill; private set => startingSkill = value;}
 
-    // Base stats for characters
+    [Header("Base Stats")]
     [SerializeField]
     private float movementSpeed;
     public float MovementSpeed { get => movementSpeed; private set => movementSpeed = value; }
@@ -21,4 +19,16 @@ public class CharacterScriptableObject : ScriptableObject
     [SerializeField]
     private float damage;
     public float Damage { get => damage; private set => damage = value; }
+
+    [SerializeField]
+    private float dashCooldown;
+    public float DashCooldown { get => dashCooldown; private set => dashCooldown = value; }
+
+    [SerializeField]
+    private float dashDuration;
+    public float DashDuration { get => dashDuration; private set => dashDuration = value; }
+
+    [SerializeField]
+    private float dashSpeed;
+    public float DashSpeed { get => dashSpeed; private set => dashSpeed = value; }
 }

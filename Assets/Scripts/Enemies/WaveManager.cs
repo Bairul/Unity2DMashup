@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -12,23 +11,24 @@ public class WaveManager : MonoBehaviour
     private Tilemap restrictedTilemap;       // Tilemap of tiles to not spawn enemies
 
     [SerializeField]
-    private float spawnInterval = 2f;        // Time between enemy spawns
+    private float spawnInterval;        // Time between enemy spawns
 
-    private int currentWaveIndex = 0;
-    private int killCount = 0;
-    private float waveTimer = 0f;
-    private bool isSpawning = true;
+    private int currentWaveIndex;
+    private int killCount;
+    private float waveTimer;
+    private bool isSpawning;
 
     [SerializeField]
     private Camera mainCamera;               // Reference to the main camera
 
     [SerializeField]
-    private float spawnOutsideDistance = 5f; // Distance from the camera's edge to spawn enemies
+    private float spawnOutsideDistance; // Distance from the camera's edge to spawn enemies
 
     private float cameraHeight;
     private float cameraWidth;
     private Vector3 minBounds;       // Bottom-left corner of the tilemap in world coordinates
     private Vector3 maxBounds;       // Top-right corner of the tilemap in world coordinates
+    private const int MAX_RETRIES = 12;
 
     void Start()
     {
@@ -42,9 +42,7 @@ public class WaveManager : MonoBehaviour
         minBounds = restrictedTilemap.CellToWorld(bounds.min);
         maxBounds = restrictedTilemap.CellToWorld(bounds.max);
 
-        if (waves.Length <= 0) {
-            isSpawning = false;
-        }
+        isSpawning = waves.Length > 0;
 
         StartCoroutine(SpawnEnemies());
     }
@@ -54,10 +52,12 @@ public class WaveManager : MonoBehaviour
         if (!isSpawning) return;
         
         waveTimer += Time.deltaTime;
+        EnemyWave currentWave = waves[currentWaveIndex];
 
-        // Check if the current wave is complete (either by kill count or time)
-        if (killCount >= waves[currentWaveIndex].killCountThreshold 
-            || waveTimer >= waves[currentWaveIndex].timeLimit)
+        // Check if the current wave is complete (either by kill count or time or total enemies spawned)
+        if (killCount >= currentWave.killCountThreshold 
+            || waveTimer >= currentWave.timeLimit
+            || currentWave.totalEnemiesToSpawn <= 0)
         {
             NextWave();
         }
@@ -71,20 +71,28 @@ public class WaveManager : MonoBehaviour
 
             if (currentWave.totalEnemiesToSpawn > 0)
             {
-                // Choose a random spawn point
-                Vector2 spawnPoint = GetRandomPositionOutsideCamera();
+                int retryCount = 0;
 
-                // If spawn position is on a restricted tile, find a new spawn point
-                while (IsOnRestrictedTile(spawnPoint))
+                // Choose a random spawn point not on a restricted tile
+                Vector2 spawnPoint = GetRandomPositionOutsideCamera();
+                while (IsOnRestrictedTile(spawnPoint) && retryCount < MAX_RETRIES)
                 {
                     spawnPoint = GetRandomPositionOutsideCamera();
+                    retryCount++;
                 }
 
-                // Spawn an enemy based on weighted probabilities
-                GameObject enemyToSpawn = GetRandomEnemyBasedOnWeight(currentWave);
-                Instantiate(enemyToSpawn, spawnPoint, Quaternion.identity);
-
-                currentWave.totalEnemiesToSpawn--;
+                // Cap retries due to Unity crashing
+                if (retryCount >= MAX_RETRIES)
+                {
+                    Debug.LogWarning("Failed to find a valid spawn point outside restricted tiles given " + MAX_RETRIES + " tries. Skipping this spawn");
+                }
+                else
+                {
+                    // Spawn an enemy based on weighted probabilities
+                    GameObject enemyToSpawn = GetRandomEnemyBasedOnWeight(currentWave);
+                    Instantiate(enemyToSpawn, spawnPoint, Quaternion.identity);
+                    currentWave.totalEnemiesToSpawn--;
+                }
             }
 
             yield return new WaitForSeconds(spawnInterval);
@@ -169,16 +177,13 @@ public class WaveManager : MonoBehaviour
 
     void NextWave()
     {
-        if (currentWaveIndex < waves.Length - 1)
+        currentWaveIndex++;
+        killCount = 0;
+        waveTimer = 0f;
+
+        if (currentWaveIndex >= waves.Length)
         {
-            currentWaveIndex++;
-            killCount = 0;
-            waveTimer = 0f;
-        }
-        else
-        {
-            // Debug.Log("All waves complete!");
-            // End game logic here, if necessary
+            Debug.Log("All waves complete!");
             isSpawning = false;
         }
     }

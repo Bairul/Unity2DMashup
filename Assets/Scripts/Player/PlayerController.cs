@@ -1,14 +1,12 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class PlayerController : MonoBehaviour
 {
-    private static Vector3 LEFT = new Vector3(-1f, 1f, 1f);
-    private static Vector3 RIGHT = new Vector3(1f, 1f, 1f);
+    private static Vector3 LEFT = new(-1f, 1f, 1f);
+    private static Vector3 RIGHT = new(1f, 1f, 1f);
 
     [SerializeField]
     private PlayerStats playerStats;
@@ -28,13 +26,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private MouseIndicator mouseIndicator;
 
-    private Vector2 mvt;
+    [SerializeField]
+    private ParticleSystem particleSystem;
 
-    // Update is called once per frame
-    void Update() {
+    private Vector2 mvt;
+    private bool canDash;
+    private bool isDashing;
+
+    void Start()
+    {
+        canDash = true;
+        isDashing = false;
+    }
+
+    void PlayerMovement()
+    {
         mvt.x = Input.GetAxisRaw("Horizontal");
         mvt.y = Input.GetAxisRaw("Vertical");
-        
+
         animate.horizontal = (int) mvt.x;
         animate.vertical = (int) mvt.y;
 
@@ -48,10 +57,46 @@ public class PlayerController : MonoBehaviour
             playerFeetbox.localScale = RIGHT;
         }
     }
+
+    void CheckDash()
+    {
+        if (canDash && Input.GetButton("Dash"))
+        {
+            StartCoroutine(Dash());
+        }
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+
+        Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
+        rgbd2d.velocity = playerStats.baseData.DashSpeed * playerStats.currentMovementSpeed * toMouse.normalized;
+
+        float rotZ =  Mathf.Atan2(mouseIndicator.mouseDir.y, mouseIndicator.mouseDir.x) * Mathf.Rad2Deg;
+        particleSystem.transform.rotation = Quaternion.Euler(0, 0, rotZ); 
+        particleSystem.Play();
+
+        yield return new WaitForSeconds(playerStats.baseData.DashDuration);
+        isDashing = false;
+        particleSystem.Stop();
+
+        yield return new WaitForSeconds(playerStats.baseData.DashCooldown);
+        canDash = true;
+    }
+
+    // Update is called once per frame
+    void Update() {
+        PlayerMovement();
+        CheckDash();
+    }
     
     // FixedUpdate is called at fixed intervals
     void FixedUpdate()
     {
+        if (isDashing) return;
+
         rgbd2d.velocity = mvt.normalized * playerStats.currentMovementSpeed;
     }
 }

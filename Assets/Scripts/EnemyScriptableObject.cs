@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="EnemyScriptableObject", menuName ="ScriptableObjects/Enemy")]
@@ -9,7 +7,7 @@ public class EnemyScriptableObject : ScriptableObject
     private GameObject prefab;
     public GameObject Prefab { get => prefab; private set => prefab = value;}
 
-    // Base stats for attacks
+    [Header("Base Stats")]
     [SerializeField]
     private float movementSpeed;
     public float MovementSpeed { get => movementSpeed; private set => movementSpeed = value; }

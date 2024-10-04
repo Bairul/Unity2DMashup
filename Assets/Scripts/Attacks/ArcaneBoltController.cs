@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// To be placed as a new child object in the Player object
+/// </summary>
 public class ArcaneBoltController : AttackController
 {
     [SerializeField]
     private MouseIndicator mouseIndicator;
 
-    // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
