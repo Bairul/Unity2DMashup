@@ -650,7 +650,8 @@ MonoBehaviour:
   waves:
   - enemyPrefabs:
     - {fileID: 1679519766998266750, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
-    spawnWeights: 01000000
+    - {fileID: 1679519766998266750, guid: fe909baae4a6feb4684fb6a20478fc5a, type: 3}
+    spawnWeights: 0100000001000000
     killCountThreshold: 100
     timeLimit: 100
     totalEnemiesToSpawn: 10
@@ -6111,7 +6112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7044061003432617526
 Transform:
   m_ObjectHideFlags: 0
