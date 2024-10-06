@@ -5,9 +5,13 @@ public class AttackStats : MonoBehaviour
     public AttackScriptableObject baseData;
 
     // Current Stats
+    [HideInInspector]
     public float currentSpeed;
+    [HideInInspector]
     public float currentPierce;
+    [HideInInspector]
     public float currentDamage;
+    [HideInInspector]
     public float currentCooldown;
 
     void Awake()

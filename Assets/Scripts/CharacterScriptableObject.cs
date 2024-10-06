@@ -15,6 +15,10 @@ public class CharacterScriptableObject : ScriptableObject
     [SerializeField]
     private float maxHealth;
     public float MaxHealth { get => maxHealth; private set => maxHealth = value; }
+
+    [SerializeField]
+    private float iFrameDuration;
+    public float IFrameDuration { get => iFrameDuration; private set => iFrameDuration = value; }
     
     [SerializeField]
     private float damage;

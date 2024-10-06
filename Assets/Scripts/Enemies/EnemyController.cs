@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -12,12 +13,15 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField]
     private EnemyStats stats;
+    private Transform player; // Reference to the player
 
     private Vector2 mvt;
-    private Transform player; // Reference to the player
+    
+    private bool canAttack;
 
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        canAttack = true;
     }
 
     void Update() {
@@ -27,7 +31,7 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!animate.attack)
+        if (!animate.attack) // Don't move when playing attack animation
         {
             rgbd2d.velocity = mvt.normalized * stats.currentMovementSpeed;
         }
@@ -35,20 +39,19 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (canAttack && collision.gameObject.CompareTag("Player"))
         {
-            animate.attack = true;
-            Attack();
+            StartCoroutine(Attack(collision.gameObject.GetComponent<PlayerStats>()));
         }
     }
 
-    void OnCollisionExit2D()
+    private IEnumerator Attack(PlayerStats player)
     {
-        animate.attack = false;
-    }
+        animate.attack = true;
+        canAttack = false;
+        player.TakeDamage(stats.currentDamage);
 
-    private void Attack()
-    {
-        // Debug.Log("Attacking");
+        yield return new WaitForSeconds(stats.baseData.AttackCooldown);
+        canAttack = true;
     }
 }

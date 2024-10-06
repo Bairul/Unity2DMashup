@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingSkill: {fileID: 4004796502006310097, guid: b70417f3a3a828a4c9651c0d0209f977, type: 3}
   movementSpeed: 4
-  maxHealth: 1
+  maxHealth: 100
+  iFrameDuration: 0.1
   damage: 1
   dashCooldown: 4
   dashDuration: 0.25

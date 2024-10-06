@@ -482,7 +482,7 @@ MonoBehaviour:
     spawnWeights: 01000000
     killCountThreshold: 100
     timeLimit: 100
-    totalEnemiesToSpawn: 1
+    totalEnemiesToSpawn: 10
   restrictedTilemap: {fileID: 2033774089}
   spawnInterval: 2
   mainCamera: {fileID: 519420031}
@@ -5521,7 +5521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3518e6b4c5d25da49960225ebcd098a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 9195751053264895492}
+  stats: {fileID: 9195751053264895492}
   rgbd2d: {fileID: 3894895998835885172}
   animate: {fileID: 2368579954543860451}
   playerHitbox: {fileID: 5470307739562435717}
@@ -5916,6 +5916,7 @@ GameObject:
   - component: {fileID: 8860585392959568004}
   - component: {fileID: 4156246522613572014}
   - component: {fileID: 3602490212630185506}
+  - component: {fileID: 8860585392959568005}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -5939,7 +5940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7044061003432617526
 Transform:
   m_ObjectHideFlags: 0
@@ -6015,6 +6016,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9167163988767412023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8860585392959568005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752490673742321721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff939832381ab946aae90a220d94158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: c18e60b25afc66743ad13c317147a990, type: 2}
 --- !u!4 &9167163988767412023
 Transform:
   m_ObjectHideFlags: 0
@@ -6049,9 +6063,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseData: {fileID: 11400000, guid: 569ad1fb9965010419d89e9196d17cbc, type: 2}
+  immunityFlash: {fileID: 8860585392959568005}
   currentMovementSpeed: 0
   currentHealth: 0
   currentDamage: 0
+  invincibilityTimer: 0
+  isInvincible: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -11,4 +11,8 @@ public class EnemyAnimate : MonoBehaviour
         animator.SetBool("Attack", attack);
         animator.SetInteger("Horizontal", horizontal);
     }
+
+    void FinishAttackAnimation() {
+        attack = false;
+    }
 }

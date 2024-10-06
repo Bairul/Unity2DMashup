@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private static Vector3 RIGHT = new(1f, 1f, 1f);
 
     [SerializeField]
-    private PlayerStats playerStats;
+    private PlayerStats stats;
 
     [SerializeField]
     private Rigidbody2D rgbd2d;
@@ -27,7 +27,9 @@ public class PlayerController : MonoBehaviour
     private MouseIndicator mouseIndicator;
 
     [SerializeField]
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
     private ParticleSystem particleSystem;
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
 
     private Vector2 mvt;
     private bool canDash;
@@ -72,17 +74,17 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
 
         Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
-        rgbd2d.velocity = playerStats.baseData.DashSpeed * playerStats.currentMovementSpeed * toMouse.normalized;
+        rgbd2d.velocity = stats.baseData.DashSpeed * stats.currentMovementSpeed * toMouse.normalized;
 
         float rotZ =  Mathf.Atan2(mouseIndicator.mouseDir.y, mouseIndicator.mouseDir.x) * Mathf.Rad2Deg;
         particleSystem.transform.rotation = Quaternion.Euler(0, 0, rotZ); 
         particleSystem.Play();
 
-        yield return new WaitForSeconds(playerStats.baseData.DashDuration);
+        yield return new WaitForSeconds(stats.baseData.DashDuration);
         isDashing = false;
         particleSystem.Stop();
 
-        yield return new WaitForSeconds(playerStats.baseData.DashCooldown);
+        yield return new WaitForSeconds(stats.baseData.DashCooldown);
         canDash = true;
     }
 
@@ -90,6 +92,7 @@ public class PlayerController : MonoBehaviour
     void Update() {
         PlayerMovement();
         CheckDash();
+        stats.CheckIFrame();
     }
     
     // FixedUpdate is called at fixed intervals
@@ -97,6 +100,6 @@ public class PlayerController : MonoBehaviour
     {
         if (isDashing) return;
 
-        rgbd2d.velocity = mvt.normalized * playerStats.currentMovementSpeed;
+        rgbd2d.velocity = mvt.normalized * stats.currentMovementSpeed;
     }
 }
