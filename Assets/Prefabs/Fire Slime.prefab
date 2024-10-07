@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1894156628906971935}
   - component: {fileID: 3906015957096506288}
   - component: {fileID: 5373315868992940500}
+  - component: {fileID: 6537167742468757538}
   m_Layer: 0
   m_Name: Fire Slime
   m_TagString: Untagged
@@ -92,9 +93,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseData: {fileID: 11400000, guid: 88a589c5cab85834ea8e527b0c1f12d2, type: 2}
+  immunityFlash: {fileID: 5255670499945109978}
+  damageIndicator: {fileID: 6537167742468757538}
   currentMovementSpeed: 0
   currentHealth: 0
   currentDamage: 0
+  invincibilityTimer: 0
+  isInvincible: 0
+--- !u!114 &6537167742468757538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679519766998266750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ec6c7e5e861c142a850ab7925dd8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0}
+  prefab: {fileID: 8110691871357602929, guid: a9697ddfc8fddb44b8d0d3b4f3699ef2, type: 3}
+  duration: 1
 --- !u!1 &2553275270892128938
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +127,7 @@ GameObject:
   - component: {fileID: 7372042195256218344}
   - component: {fileID: 1334337667275035254}
   - component: {fileID: 6332794042546906690}
+  - component: {fileID: 5255670499945109978}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -217,6 +238,19 @@ MonoBehaviour:
   animator: {fileID: 1334337667275035254}
   horizontal: 0
   attack: 0
+--- !u!114 &5255670499945109978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2553275270892128938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff939832381ab946aae90a220d94158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: c18e60b25afc66743ad13c317147a990, type: 2}
 --- !u!1 &4764459517848284450
 GameObject:
   m_ObjectHideFlags: 0

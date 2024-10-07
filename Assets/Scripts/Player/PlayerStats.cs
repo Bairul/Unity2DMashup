@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField]
     private ImmunityFlash immunityFlash;
+    public float damageTextTime;
 
     // Current Stats
     [HideInInspector]
@@ -13,6 +14,8 @@ public class PlayerStats : MonoBehaviour
     public float currentHealth;
     [HideInInspector]
     public float currentDamage;
+
+    // iframe
     [HideInInspector]
     public float invincibilityTimer;
     public bool isInvincible;

@@ -27,6 +27,7 @@ public class EnemyController : MonoBehaviour
     void Update() {
         mvt = player.position - transform.position;
         animate.horizontal = (int) mvt.x;
+        stats.CheckIFrame();
     }
 
     void FixedUpdate()

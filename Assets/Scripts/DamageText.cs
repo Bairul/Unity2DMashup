@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class DamageText : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private float lifeSpan;
+    
     void Start()
     {
-        
+        Destroy(gameObject, lifeSpan);
     }
 
-    // Update is called once per frame
-    void Update()
+    void SetUp(float time)
     {
-        
+        lifeSpan = time;
     }
 }

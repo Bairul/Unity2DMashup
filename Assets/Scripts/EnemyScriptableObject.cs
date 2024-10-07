@@ -23,4 +23,8 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField]
     private float attackCooldown;
     public float AttackCooldown { get => attackCooldown; private set => attackCooldown = value; }
+
+    [SerializeField]
+    private float iFrameDuration;
+    public float IFrameDuration { get => iFrameDuration; private set => iFrameDuration = value; }
 }
