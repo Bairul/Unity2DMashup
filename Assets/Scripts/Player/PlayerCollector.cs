@@ -14,7 +14,7 @@ public class PlayerCollector : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.TryGetComponent(out ICollectible collectible))
+        if (collider2D.gameObject.TryGetComponent(out Collectible collectible))
         {
             collectible.MoveTowards(player);
         }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3906015957096506288}
   - component: {fileID: 5373315868992940500}
   - component: {fileID: 6537167742468757538}
+  - component: {fileID: -1596892319729098242}
   m_Layer: 0
   m_Name: Fire Slime
   m_TagString: Untagged
@@ -99,7 +100,6 @@ MonoBehaviour:
   currentMovementSpeed: 0
   currentDamage: 0
   currentHealth: 0
-  baseData: {fileID: 11400000, guid: 88a589c5cab85834ea8e527b0c1f12d2, type: 2}
   damageIndicator: {fileID: 6537167742468757538}
 --- !u!114 &6537167742468757538
 MonoBehaviour:
@@ -116,6 +116,23 @@ MonoBehaviour:
   offset: {x: 0, y: 0}
   prefab: {fileID: 8110691871357602929, guid: a9697ddfc8fddb44b8d0d3b4f3699ef2, type: 3}
   duration: 1
+--- !u!114 &-1596892319729098242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679519766998266750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0034a845fad3e4c878c5d851620fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootItems:
+  - item: {fileID: 0}
+    weight: 1
+  - item: {fileID: 4315425234385956554, guid: 7fb08df28756a554a822b67f0ad54f36, type: 3}
+    weight: 2
 --- !u!1 &2553275270892128938
 GameObject:
   m_ObjectHideFlags: 0

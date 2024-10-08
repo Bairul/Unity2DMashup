@@ -20,6 +20,7 @@ public class EnemyStats : GenericStats
 
     protected override void Kill() 
     {
+        GetComponentInParent<LootTable>().DropLoot();
         Destroy(gameObject);
     }
 }
