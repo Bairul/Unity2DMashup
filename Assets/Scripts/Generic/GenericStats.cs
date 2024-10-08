@@ -2,11 +2,10 @@ using UnityEngine;
 
 public abstract class GenericStats : MonoBehaviour
 {
-    
     [SerializeField] protected GenericScriptableObject genericData;
-    [SerializeField] private ImmunityFlash immunityFlash;
 
     // iframe
+    [SerializeField] private ImmunityFlash immunityFlash;
     [HideInInspector] public float invincibilityTimer;
     [HideInInspector] public bool isInvincible;
 
@@ -27,35 +26,33 @@ public abstract class GenericStats : MonoBehaviour
 
     public void CheckIFrame()
     {
-        if (isInvincible)
+        if (!isInvincible) return;
+
+        if (invincibilityTimer > 0)
         {
-            if (invincibilityTimer > 0)
-            {
-                invincibilityTimer -= Time.deltaTime;
-            }
-            else
-            {
-                isInvincible = false;
-            }
+            invincibilityTimer -= Time.deltaTime;
+        }
+        else
+        {
+            isInvincible = false;
         }
     }
 
     public void TakeDamage(float damage) 
     {
-        if (!isInvincible)
-        {
-            Damage(damage);
+        if (isInvincible) return;
+        
+        Damage(damage);
 
-            if (currentHealth <= 0) 
-            {
-                Kill();
-            }
-            else
-            {
-                invincibilityTimer = genericData.IFrameDuration;
-                isInvincible = true;
-                immunityFlash.Flash(genericData.IFrameDuration);
-            }
+        if (currentHealth <= 0) 
+        {
+            Kill();
+        }
+        else
+        {
+            invincibilityTimer = genericData.IFrameDuration;
+            isInvincible = true;
+            immunityFlash.Flash(genericData.IFrameDuration);
         }
     }
 

@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     private bool canAttack;
 
     void Start() {
+        // TODO: change me in the future to something efficient
         player = GameObject.FindGameObjectWithTag("Player").transform;
         canAttack = true;
     }

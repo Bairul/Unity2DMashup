@@ -1,8 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
+
+public enum ExperienceCapMode
+{
+    FixedByLevelRange,
+    FunctionScaling
+}
 
 [CreateAssetMenu(fileName ="CharacterScriptableObject", menuName ="ScriptableObjects/Character")]
 public class CharacterScriptableObject : GenericScriptableObject
 {
+    [SerializeField]
+    private float magnetRange;
+    public float MagnetRange { get => magnetRange; private set => magnetRange = value; }
+
     [SerializeField]
     private GameObject startingSkill;
     public GameObject StartingSkill { get => startingSkill; private set => startingSkill = value;}
@@ -19,4 +30,30 @@ public class CharacterScriptableObject : GenericScriptableObject
     [SerializeField]
     private float dashSpeedMultiplier;
     public float DashSpeedMultiplier { get => dashSpeedMultiplier; private set => dashSpeedMultiplier = value; }
+
+    [Header("Experience")]
+    [SerializeField]
+    private ExperienceCapMode experienceCapMode;
+    public ExperienceCapMode ExperienceCapMode { get => experienceCapMode; }
+
+    [SerializeField]
+    private int lastLevel;
+    public int LastLevel {get => lastLevel; }
+
+    [Header("Experience Range Cap Mode")]
+    [SerializeField]
+    private List<LevelRange> levelRanges;
+    public List<LevelRange> LevelRanges { get => levelRanges; }
+
+    [Header("Experience Function Cap Mode")]
+    [SerializeField]
+    private float xpFunctionCoefficient;
+    public float XpFunctionCoefficient { get => xpFunctionCoefficient; }
+
+    [SerializeField]
+    private float xpFunctionExponent;
+    public float XpFunctionExponent { get => xpFunctionExponent; }
+    [SerializeField]
+    private float xpFunctionConstant;
+    public float XpFunctionConstant { get => xpFunctionConstant; }
 }

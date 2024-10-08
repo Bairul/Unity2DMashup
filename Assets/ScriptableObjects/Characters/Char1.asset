@@ -16,7 +16,18 @@ MonoBehaviour:
   maxHealth: 100
   iFrameDuration: 0.1
   damage: 1
+  magnetRange: 3
   startingSkill: {fileID: 4004796502006310097, guid: b70417f3a3a828a4c9651c0d0209f977, type: 3}
   dashCooldown: 4
   dashDuration: 0.25
   dashSpeedMultiplier: 4
+  experienceCapMode: 0
+  lastLevel: 10
+  levelRanges:
+  - maxLevel: 2
+    experienceCap: 10
+  - maxLevel: 5
+    experienceCap: 20
+  xpFunctionCoefficient: 2
+  xpFunctionExponent: 1.5
+  xpFunctionConstant: 10
