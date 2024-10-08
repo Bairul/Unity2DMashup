@@ -5,32 +5,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // unchanging fields
     private static Vector3 LEFT = new(-1f, 1f, 1f);
     private static Vector3 RIGHT = new(1f, 1f, 1f);
 
-    [SerializeField]
-    private PlayerStats stats;
+    // inspector fields
+    [SerializeField] private PlayerAnimate animate;
+    [SerializeField] private Rigidbody2D rgbd2d;
+    [SerializeField] private Transform playerHitbox;
+    [SerializeField] private Transform playerFeetbox;
+    [SerializeField] private PlayerStats stats;
+    [SerializeField] private MouseIndicator mouseIndicator;
 
     [SerializeField]
-    private Rigidbody2D rgbd2d;
+    private new ParticleSystem particleSystem;
 
-    [SerializeField]
-    private PlayerAnimate animate;
-
-    [SerializeField]
-    private Transform playerHitbox;
-
-    [SerializeField]
-    private Transform playerFeetbox;
-
-    [SerializeField]
-    private MouseIndicator mouseIndicator;
-
-    [SerializeField]
-#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
-    private ParticleSystem particleSystem;
-#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
-
+    // private fields
     private Vector2 mvt;
     private bool canDash;
     private bool isDashing;
@@ -74,17 +64,17 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
 
         Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
-        rgbd2d.velocity = stats.baseData.DashSpeed * stats.currentMovementSpeed * toMouse.normalized;
+        rgbd2d.velocity = stats.BaseData.DashSpeedMultiplier * stats.currentMovementSpeed * toMouse.normalized;
 
         float rotZ =  Mathf.Atan2(mouseIndicator.mouseDir.y, mouseIndicator.mouseDir.x) * Mathf.Rad2Deg;
         particleSystem.transform.rotation = Quaternion.Euler(0, 0, rotZ); 
         particleSystem.Play();
 
-        yield return new WaitForSeconds(stats.baseData.DashDuration);
+        yield return new WaitForSeconds(stats.BaseData.DashDuration);
         isDashing = false;
         particleSystem.Stop();
 
-        yield return new WaitForSeconds(stats.baseData.DashCooldown);
+        yield return new WaitForSeconds(stats.BaseData.DashCooldown);
         canDash = true;
     }
 

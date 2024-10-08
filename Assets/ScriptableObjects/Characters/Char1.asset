@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2a39868c1aa934f814e41af7f44f06, type: 3}
   m_Name: Char1
   m_EditorClassIdentifier: 
-  startingSkill: {fileID: 4004796502006310097, guid: b70417f3a3a828a4c9651c0d0209f977, type: 3}
   movementSpeed: 4
   maxHealth: 100
   iFrameDuration: 0.1
   damage: 1
+  startingSkill: {fileID: 4004796502006310097, guid: b70417f3a3a828a4c9651c0d0209f977, type: 3}
   dashCooldown: 4
   dashDuration: 0.25
-  dashSpeed: 4
+  dashSpeedMultiplier: 4

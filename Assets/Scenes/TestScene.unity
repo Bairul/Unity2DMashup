@@ -5522,11 +5522,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3518e6b4c5d25da49960225ebcd098a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 9195751053264895492}
-  rgbd2d: {fileID: 3894895998835885172}
   animate: {fileID: 2368579954543860451}
+  rgbd2d: {fileID: 3894895998835885172}
   playerHitbox: {fileID: 5470307739562435717}
   playerFeetbox: {fileID: 4634758134237291466}
+  stats: {fileID: 9195751053264895492}
   mouseIndicator: {fileID: 5695903795164071931}
   particleSystem: {fileID: 2142000425}
 --- !u!1 &2068865780756782319
@@ -6064,15 +6064,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26af008b26c335546b7cf67f0639090e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseData: {fileID: 11400000, guid: 569ad1fb9965010419d89e9196d17cbc, type: 2}
+  genericData: {fileID: 11400000, guid: 569ad1fb9965010419d89e9196d17cbc, type: 2}
   immunityFlash: {fileID: 8860585392959568005}
-  damageIndicator: {fileID: 9195751053264895493}
-  damageTextTime: 1
-  currentMovementSpeed: 0
-  currentHealth: 0
-  currentDamage: 0
   invincibilityTimer: 0
   isInvincible: 0
+  currentMovementSpeed: 0
+  currentDamage: 0
+  currentHealth: 0
 --- !u!114 &9195751053264895493
 MonoBehaviour:
   m_ObjectHideFlags: 0

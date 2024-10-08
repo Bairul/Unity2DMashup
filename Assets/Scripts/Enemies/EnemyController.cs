@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour
         canAttack = false;
         player.TakeDamage(stats.currentDamage);
 
-        yield return new WaitForSeconds(stats.baseData.AttackCooldown);
+        yield return new WaitForSeconds(stats.BaseData.AttackCooldown);
         canAttack = true;
     }
 }

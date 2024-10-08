@@ -92,14 +92,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f2045d7be9c964fb7afe7c35ffcac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseData: {fileID: 11400000, guid: 88a589c5cab85834ea8e527b0c1f12d2, type: 2}
+  genericData: {fileID: 11400000, guid: 88a589c5cab85834ea8e527b0c1f12d2, type: 2}
   immunityFlash: {fileID: 5255670499945109978}
-  damageIndicator: {fileID: 6537167742468757538}
-  currentMovementSpeed: 0
-  currentHealth: 0
-  currentDamage: 0
   invincibilityTimer: 0
   isInvincible: 0
+  currentMovementSpeed: 0
+  currentDamage: 0
+  currentHealth: 0
+  baseData: {fileID: 11400000, guid: 88a589c5cab85834ea8e527b0c1f12d2, type: 2}
+  damageIndicator: {fileID: 6537167742468757538}
 --- !u!114 &6537167742468757538
 MonoBehaviour:
   m_ObjectHideFlags: 0

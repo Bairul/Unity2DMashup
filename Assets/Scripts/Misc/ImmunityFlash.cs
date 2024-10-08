@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ImmunityFlash : MonoBehaviour
@@ -20,7 +19,6 @@ public class ImmunityFlash : MonoBehaviour
     private IEnumerator FlashRoutine(float flashDuration)
     {
         spriteRenderer.material = flashMaterial;
-        Debug.Log(flashDuration);
 
         yield return new WaitForSeconds(flashDuration);
 
