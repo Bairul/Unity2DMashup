@@ -26,6 +26,7 @@ public class PlayerStats : GenericStats
 
     void Start()
     {
+        
         UpdateExperienceCap();
         UpdateMagnetRange(currentMagnetRange);
     }

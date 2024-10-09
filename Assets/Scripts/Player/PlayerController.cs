@@ -11,24 +11,32 @@ public class PlayerController : MonoBehaviour
 
     // inspector fields
     [SerializeField] private PlayerAnimate animate;
-    [SerializeField] private Rigidbody2D rgbd2d;
     [SerializeField] private Transform playerHitbox;
     [SerializeField] private Transform playerFeetbox;
-    [SerializeField] private PlayerStats stats;
     [SerializeField] private MouseIndicator mouseIndicator;
-
-    [SerializeField]
-    private new ParticleSystem particleSystem;
+    [SerializeField] private new ParticleSystem particleSystem;
 
     // private fields
+    private PlayerStats stats;
+    private Rigidbody2D rgbd2d;
     private Vector2 mvt;
     private bool canDash;
     private bool isDashing;
 
-    void Start()
+    // Awake is called before Start. Frequently used to get internal components and initialize fields
+    void Awake()
     {
+        rgbd2d = GetComponent<Rigidbody2D>();
+        stats = GetComponent<PlayerStats>();
+
         canDash = true;
         isDashing = false;
+    }
+
+    // Used when referencing other objects and their components or after Awake
+    void Start()
+    {
+        
     }
 
     void PlayerMovement()

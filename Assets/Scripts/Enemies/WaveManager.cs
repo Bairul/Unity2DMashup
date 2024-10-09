@@ -4,28 +4,30 @@ using UnityEngine.Tilemaps;
 
 public class WaveManager : MonoBehaviour
 {
-    [SerializeField]
-    private EnemyWave[] waves;               // List of waves
-
-    [SerializeField]
-    private Tilemap restrictedTilemap;       // Tilemap of tiles to not spawn enemies
+    [SerializeField] private EnemyWave[] waves;               // List of waves
+    [SerializeField] private Tilemap restrictedTilemap;       // Tilemap of tiles to not spawn enemies
 
     private int currentWaveIndex;
     private int killCount;
     private float waveTimer;
     private bool isSpawning;
 
-    [SerializeField]
-    private Camera mainCamera;               // Reference to the main camera
+    [SerializeField] private Camera mainCamera;               // Reference to the main camera
 
-    [SerializeField]
-    private float spawnOutsideDistance; // Distance from the camera's edge to spawn enemies
+    [SerializeField] private float spawnOutsideDistance; // Distance from the camera's edge to spawn enemies
 
     private float cameraHeight;
     private float cameraWidth;
     private Vector3 minBounds;       // Bottom-left corner of the tilemap in world coordinates
     private Vector3 maxBounds;       // Top-right corner of the tilemap in world coordinates
     private const int MAX_RETRIES = 12;
+
+    void Awake()
+    {
+        isSpawning = true;
+        // Error checking
+        CheckValidWaves();
+    }
 
     void Start()
     {
@@ -38,11 +40,6 @@ public class WaveManager : MonoBehaviour
         // Convert the bottom-left and top-right corners to world coordinates
         minBounds = restrictedTilemap.CellToWorld(bounds.min);
         maxBounds = restrictedTilemap.CellToWorld(bounds.max);
-
-        isSpawning = true;
-        
-        // Error checking
-        CheckValidWaves();
 
         StartCoroutine(SpawnEnemies());
     }

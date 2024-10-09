@@ -6,7 +6,7 @@ public class PlayerCollector : MonoBehaviour
     private CircleCollider2D range;
     public CircleCollider2D Range {get => range; set => range = value; }
 
-    void Start()
+    void Awake()
     {
         range = GetComponent<CircleCollider2D>();
         player = GetComponentInParent<Transform>();

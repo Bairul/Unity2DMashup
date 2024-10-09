@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EnemyStats : GenericStats
 {
-    public EnemyScriptableObject BaseData {get => (EnemyScriptableObject) genericData; }
+    private EnemyScriptableObject baseData;
+    public EnemyScriptableObject BaseData {get => baseData;}
 
     [SerializeField]
     private DamageIndicator damageIndicator;
@@ -10,6 +11,7 @@ public class EnemyStats : GenericStats
     protected override void Awake()
     {
         base.Awake();
+        baseData = (EnemyScriptableObject) genericData;
     }
 
     protected override void Damage(float damage)

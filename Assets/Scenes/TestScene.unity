@@ -5604,10 +5604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animate: {fileID: 2368579954543860451}
-  rgbd2d: {fileID: 3894895998835885172}
   playerHitbox: {fileID: 5470307739562435717}
   playerFeetbox: {fileID: 4634758134237291466}
-  stats: {fileID: 9195751053264895492}
   mouseIndicator: {fileID: 5695903795164071931}
   particleSystem: {fileID: 2142000425}
 --- !u!1 &2068865780756782319
@@ -5894,7 +5892,6 @@ GameObject:
   - component: {fileID: 9167163988767412023}
   - component: {fileID: 9195751053264895492}
   - component: {fileID: 1886013078562265313}
-  - component: {fileID: 9195751053264895493}
   - component: {fileID: 2368579954543860451}
   - component: {fileID: 3894895998835885172}
   m_Layer: 0
@@ -6023,7 +6020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7044061003432617526
 Transform:
   m_ObjectHideFlags: 0
@@ -6158,21 +6155,6 @@ MonoBehaviour:
   currentExperience: 0
   currentExperienceCap: 0
   currentLevel: 1
---- !u!114 &9195751053264895493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5674407145447989593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62ec6c7e5e861c142a850ab7925dd8e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0}
-  prefab: {fileID: 8110691871357602929, guid: a9697ddfc8fddb44b8d0d3b4f3699ef2, type: 3}
-  duration: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

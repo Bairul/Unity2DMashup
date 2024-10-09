@@ -9,8 +9,7 @@ public class ImmunityFlash : MonoBehaviour
     private Material originalMaterial;
     private Coroutine flashRoutine;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalMaterial = spriteRenderer.material;
