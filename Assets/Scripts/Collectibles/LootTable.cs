@@ -13,7 +13,31 @@ public class LootTable : MonoBehaviour
 {
     [Header("Loot Table")]
     [SerializeField] private Loot[] lootItems;  // Array of loot items with weights
-    
+
+    private bool canDrop;
+
+    void Awake()
+    {
+        canDrop = true;
+        CheckValidLoot(); 
+    }
+
+    private void CheckValidLoot()
+    {
+        if (lootItems.Length == 0)
+        {
+            canDrop = false;
+        }
+        foreach (Loot loot in lootItems)
+        {
+            if (loot.weight <= 0)
+            {
+                Debug.LogError("An enemy loot have non-positive weights");
+                canDrop = false;
+            }
+        }
+    }
+
     // Method to roll for loot
     GameObject GetRandomLootBasedOnWeight()
     {
@@ -45,6 +69,8 @@ public class LootTable : MonoBehaviour
     // Call this when the enemy dies
     public void DropLoot()
     {
+        if (!canDrop) return;
+
         GameObject loot = GetRandomLootBasedOnWeight();
         if (loot != null)
         {

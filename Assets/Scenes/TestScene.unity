@@ -480,6 +480,13 @@ MonoBehaviour:
   - enemySpawns:
     - enemyPrefab: {fileID: 1679519766998266750, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
       spawnWeight: 2
+    - enemyPrefab: {fileID: 1945159499569780504, guid: 0722ad5a00c23bb4b970d77ae64791dc, type: 3}
+      spawnWeight: 1
+    spawnInterval: 2
+    killCountThreshold: 100
+    timeLimit: 100
+    totalEnemiesToSpawn: 10
+  - enemySpawns:
     - enemyPrefab: {fileID: 1679519766998266750, guid: fe909baae4a6feb4684fb6a20478fc5a, type: 3}
       spawnWeight: 1
     spawnInterval: 2
@@ -5698,7 +5705,7 @@ GameObject:
   - component: {fileID: 2718479833546264209}
   m_Layer: 3
   m_Name: HitboxCollider
-  m_TagString: Hitbox
+  m_TagString: PlayerHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

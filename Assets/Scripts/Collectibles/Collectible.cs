@@ -15,7 +15,7 @@ public abstract class Collectible : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.CompareTag("Hitbox"))
+        if (collider2D.gameObject.CompareTag("PlayerHitbox"))
         {
             Collect(collider2D.gameObject.GetComponentInParent<PlayerStats>());
         }

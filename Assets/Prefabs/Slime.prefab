@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3300106757446185738}
   m_Layer: 0
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,8 +79,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animate: {fileID: 6332794042546906690}
-  rgbd2d: {fileID: 1894156628906971935}
-  stats: {fileID: 5373315868992940500}
 --- !u!114 &5373315868992940500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +98,6 @@ MonoBehaviour:
   currentMovementSpeed: 0
   currentDamage: 0
   currentHealth: 0
-  damageIndicator: {fileID: -2706329334468229672}
 --- !u!114 &-2706329334468229672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb2403b396ce4244a238d2bd91b1aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1334337667275035254}
   horizontal: 0
   attack: 0
 --- !u!114 &6622650630599985614
@@ -358,7 +354,7 @@ GameObject:
   - component: {fileID: 2832362541676018902}
   m_Layer: 3
   m_Name: HitboxCollider
-  m_TagString: Enemy
+  m_TagString: EnemyHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

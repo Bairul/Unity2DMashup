@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class EnemyAnimate : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
+    [HideInInspector]
     public int horizontal;
+    [HideInInspector]
     public bool attack;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {

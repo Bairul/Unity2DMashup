@@ -7,17 +7,19 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField]
     private EnemyAnimate animate;
-
-    [SerializeField]
     private Rigidbody2D rgbd2d;
-
-    [SerializeField]
     private EnemyStats stats;
     private Transform player; // Reference to the player
 
     private Vector2 mvt;
     
     private bool canAttack;
+
+    void Awake()
+    {
+        rgbd2d = GetComponent<Rigidbody2D>();
+        stats = GetComponent<EnemyStats>();
+    }
 
     void Start() {
         // TODO: change me in the future to something efficient

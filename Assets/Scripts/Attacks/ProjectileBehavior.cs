@@ -15,7 +15,7 @@ public class ProjectileBehavior : MonoBehaviour
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.CompareTag("Enemy"))
+        if (collider.CompareTag("EnemyHitbox"))
         {
             EnemyStats enemy = collider.GetComponentInParent<EnemyStats>();
             enemy.TakeDamage(attackStats.currentDamage);
