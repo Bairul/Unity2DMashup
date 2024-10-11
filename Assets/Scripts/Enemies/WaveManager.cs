@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -13,7 +14,6 @@ public class WaveManager : MonoBehaviour
     private bool isSpawning;
 
     [SerializeField] private Camera mainCamera;               // Reference to the main camera
-
     [SerializeField] private float spawnOutsideDistance; // Distance from the camera's edge to spawn enemies
 
     private float cameraHeight;
@@ -22,8 +22,10 @@ public class WaveManager : MonoBehaviour
     private Vector3 maxBounds;       // Top-right corner of the tilemap in world coordinates
     private const int MAX_RETRIES = 12;
 
+    private List<GameObject> enemies;
     void Awake()
     {
+        enemies = new List<GameObject>();
         isSpawning = true;
         // Error checking
         CheckValidWaves();
@@ -114,6 +116,8 @@ public class WaveManager : MonoBehaviour
                     GameObject enemyToSpawn = GetRandomEnemyBasedOnWeight(currentWave);
                     Instantiate(enemyToSpawn, spawnPoint, Quaternion.identity);
                     currentWave.totalEnemiesToSpawn--;
+
+                    enemies.Add(enemyToSpawn);
                 }
             }
 

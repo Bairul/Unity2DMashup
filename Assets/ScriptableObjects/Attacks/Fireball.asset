@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df926693646a334b85943bd2dea18c7, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2288747967158037509, guid: 9bef33563dd189f42beee07bdafa9ca2, type: 3}
+  speed: 8
+  cooldownDuration: 2
+  pierce: 1
+  damage: 2
+  lifespan: 4

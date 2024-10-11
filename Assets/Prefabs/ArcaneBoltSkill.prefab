@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5679423286430785616}
   - component: {fileID: 4459270841079917818}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ TrailRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Time: 0.5
-  m_PreviewTimeScale: 0
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -193,7 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55c52fd4f6c9ef4184f77d925176962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackStats: {fileID: 8557822597089532652}
 --- !u!61 &7879321059239472849
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -267,7 +266,7 @@ GameObject:
   - component: {fileID: 2383182668713151140}
   - component: {fileID: 7202903625487108357}
   - component: {fileID: 5130409978509989344}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

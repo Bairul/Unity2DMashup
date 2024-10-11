@@ -5,16 +5,21 @@ using UnityEngine;
 /// </summary>
 public class ProjectileBehavior : MonoBehaviour
 {
-    [SerializeField]
     protected AttackStats attackStats;
     protected Vector3 direction;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
-        Destroy(gameObject, attackStats.baseData.Lifespan);
+        attackStats = GetComponent<AttackStats>();
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collider) {
+    protected virtual void Start()
+    {
+        Destroy(gameObject, attackStats.BaseData.Lifespan);
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collider)
+    {
         if (collider.CompareTag("EnemyHitbox"))
         {
             EnemyStats enemy = collider.GetComponentInParent<EnemyStats>();
@@ -23,11 +28,18 @@ public class ProjectileBehavior : MonoBehaviour
         }
     }
 
-    public void DirectionChecker(Vector3 dir) {
-        direction = new (dir.x, dir.y, dir.z);
+    public void DirectionChecker(Vector3 dir)
+    {
+        direction = dir;
     }
 
-    public void DamageMultiplier() {
+    public void RotateToDirection(Quaternion rotation)
+    {
+        transform.rotation = rotation;
+    }
+
+    public void DamageMultiplier()
+    {
 
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Base script for all attack controllers
 /// </summary>
-public class AttackController : MonoBehaviour
+public abstract class AttackController : MonoBehaviour
 {
     [SerializeField]
     protected AttackStats attackStats;
@@ -24,8 +24,5 @@ public class AttackController : MonoBehaviour
         }
     }
 
-    protected virtual private void LaunchAttack()
-    {
-
-    }
+    protected abstract void LaunchAttack();
 }

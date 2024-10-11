@@ -74,8 +74,7 @@ public class PlayerController : MonoBehaviour
         Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
         rgbd2d.velocity = stats.BaseData.DashSpeedMultiplier * stats.currentMovementSpeed * toMouse.normalized;
 
-        float rotZ =  Mathf.Atan2(mouseIndicator.mouseDir.y, mouseIndicator.mouseDir.x) * Mathf.Rad2Deg;
-        particleSystem.transform.rotation = Quaternion.Euler(0, 0, rotZ); 
+        particleSystem.transform.rotation = mouseIndicator.rotationToMouse; 
         particleSystem.Play();
 
         yield return new WaitForSeconds(stats.BaseData.DashDuration);

@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class AttackStats : MonoBehaviour
 {
-    public AttackScriptableObject baseData;
+    [SerializeField] private AttackScriptableObject baseData;
+    public AttackScriptableObject BaseData {get => baseData;}
 
     // Current Stats
     [HideInInspector]
