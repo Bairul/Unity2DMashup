@@ -10,12 +10,13 @@ public class TargetAtMouseController : AttackController
 
     protected override void LaunchAttack()
     {
-        GameObject attack = Instantiate(attackStats.BaseData.Prefab);
+        GameObject attack = Instantiate(attackStats.BaseStats.Prefab);
         attack.transform.position = transform.position;
         
         Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
         ProjectileBehavior projectileBehavior = attack.GetComponent<StraightProjectileBehavior>();
         
+        projectileBehavior.SetAttackData(attackStats.ToAttackData());
         projectileBehavior.DirectionChecker(toMouse.normalized);
         projectileBehavior.RotateToDirection(mouseIndicator.rotationToMouse);
     }

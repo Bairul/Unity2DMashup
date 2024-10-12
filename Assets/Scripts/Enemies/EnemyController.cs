@@ -1,18 +1,17 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(EnemyStats))]
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField]
-    private EnemyAnimate animate;
+    [SerializeField] private EnemyAnimate animate;
+
     private Rigidbody2D rgbd2d;
     private EnemyStats stats;
-    private Transform player; // Reference to the player
+    private Transform player;
 
     private Vector2 mvt;
-    
     private bool canAttack;
 
     void Awake()
@@ -22,8 +21,7 @@ public class EnemyController : MonoBehaviour
     }
 
     void Start() {
-        // TODO: change me in the future to something efficient
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameWorld.Instance.PlayerTransform;
         canAttack = true;
     }
 
@@ -31,6 +29,8 @@ public class EnemyController : MonoBehaviour
         mvt = player.position - transform.position;
         animate.horizontal = (int) mvt.x;
         stats.CheckIFrame();
+        
+        GameWorld.Instance.UpdateNearestEnemy(gameObject);
     }
 
     void FixedUpdate()
@@ -55,7 +55,7 @@ public class EnemyController : MonoBehaviour
         canAttack = false;
         player.TakeDamage(stats.currentDamage);
 
-        yield return new WaitForSeconds(stats.BaseData.AttackCooldown);
+        yield return new WaitForSeconds(stats.BaseStats.AttackCooldown);
         canAttack = true;
     }
 }

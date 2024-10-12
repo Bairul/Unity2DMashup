@@ -3,20 +3,23 @@ using UnityEngine;
 /// <summary>
 /// Base script for all attack controllers
 /// </summary>
+
+[RequireComponent(typeof(AttackStats))]
+
 public abstract class AttackController : MonoBehaviour
 {
     [SerializeField]
-    protected AttackStats attackStats;
-
-    [SerializeField]
     protected PlayerStats playerStats;
 
-    protected virtual void Start()
+    protected AttackStats attackStats;
+
+    protected virtual void Awake()
     {
-        
+        attackStats = GetComponent<AttackStats>();
     }
 
-    protected virtual void Update()
+    // updates after all updates
+    protected virtual void LateUpdate()
     {
         if (attackStats.CanAttack())
         {

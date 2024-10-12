@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f2045d7be9c964fb7afe7c35ffcac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  genericData: {fileID: 11400000, guid: 3b3d2fbc3ac830742be4dcf5149659c3, type: 2}
+  genericStats: {fileID: 11400000, guid: 3b3d2fbc3ac830742be4dcf5149659c3, type: 2}
   immunityFlash: {fileID: 1381010311159253848}
   invincibilityTimer: 0
   isInvincible: 0

@@ -456,7 +456,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 959147397}
-  - component: {fileID: 959147398}
+  - component: {fileID: 959147399}
+  - component: {fileID: 959147400}
   m_Layer: 0
   m_Name: FireBallController
   m_TagString: Untagged
@@ -479,7 +480,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9167163988767412023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &959147398
+--- !u!114 &959147399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -488,12 +489,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 959147396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00208f67c1f3f8046854f837b6061c63, type: 3}
+  m_Script: {fileID: 11500000, guid: d720645d889e26644b444f3800716c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackStats: {fileID: 2608104533104211763, guid: 9bef33563dd189f42beee07bdafa9ca2, type: 3}
   playerStats: {fileID: 9195751053264895492}
-  mouseIndicator: {fileID: 5695903795164071931}
+--- !u!114 &959147400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959147396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c2528abc86cc940a81e6c93f5ce2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: eccb999918012704d81427f279496bbe, type: 2}
+  currentSpeed: 0
+  currentPierce: 0
+  currentDamage: 0
+  currentCooldown: 0
+  currentRange: 0
+  currentLifespan: 0
 --- !u!1 &970277415
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,10 +545,21 @@ MonoBehaviour:
   - enemySpawns:
     - enemyPrefab: {fileID: 1679519766998266750, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
       spawnWeight: 1
+    - enemyPrefab: {fileID: 1679519766998266750, guid: fe909baae4a6feb4684fb6a20478fc5a, type: 3}
+      spawnWeight: 1
+    spawnInterval: 1
+    killCountThreshold: 100
+    timeLimit: 100
+    totalEnemiesToSpawn: 15
+  - enemySpawns:
+    - enemyPrefab: {fileID: 1057974009928656043, guid: 55523e5be4207c6458da2fd97cb516ca, type: 3}
+      spawnWeight: 1
+    - enemyPrefab: {fileID: 1945159499569780504, guid: 0722ad5a00c23bb4b970d77ae64791dc, type: 3}
+      spawnWeight: 1
     spawnInterval: 2
     killCountThreshold: 100
     timeLimit: 100
-    totalEnemiesToSpawn: 1
+    totalEnemiesToSpawn: 15
   restrictedTilemap: {fileID: 2033774089}
   mainCamera: {fileID: 519420031}
   spawnOutsideDistance: 5
@@ -648,6 +677,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcee1675c9484e848ae13d9cac69176d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1131128998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1131129000}
+  - component: {fileID: 1131128999}
+  m_Layer: 0
+  m_Name: GameWorld
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1131128999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131128998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95bf363de2b6714cae25a73e330dd98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 9167163988767412023}
+--- !u!4 &1131129000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131128998}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1521344577
 GameObject:
   m_ObjectHideFlags: 0
@@ -5633,7 +5707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00208f67c1f3f8046854f837b6061c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackStats: {fileID: 8557822597089532652, guid: b70417f3a3a828a4c9651c0d0209f977, type: 3}
   playerStats: {fileID: 9195751053264895492}
   mouseIndicator: {fileID: 5695903795164071931}
 --- !u!114 &1886013078562265313
@@ -6060,13 +6133,33 @@ GameObject:
   m_Component:
   - component: {fileID: 3985601010103614245}
   - component: {fileID: 1078704995428665130}
+  - component: {fileID: 6784088035812343331}
   m_Layer: 0
   m_Name: ArcaneBoltController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!114 &6784088035812343331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6784088035812343330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c2528abc86cc940a81e6c93f5ce2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: eee090bc86679814f91daab5dde91c03, type: 2}
+  currentSpeed: 0
+  currentPierce: 0
+  currentDamage: 0
+  currentCooldown: 0
+  currentRange: 0
+  currentLifespan: 0
 --- !u!4 &7044061003432617526
 Transform:
   m_ObjectHideFlags: 0
@@ -6190,7 +6283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26af008b26c335546b7cf67f0639090e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  genericData: {fileID: 11400000, guid: 569ad1fb9965010419d89e9196d17cbc, type: 2}
+  genericStats: {fileID: 11400000, guid: 569ad1fb9965010419d89e9196d17cbc, type: 2}
   immunityFlash: {fileID: 8860585392959568005}
   invincibilityTimer: 0
   isInvincible: 0
@@ -6210,3 +6303,4 @@ SceneRoots:
   - {fileID: 381585025}
   - {fileID: 1065843310}
   - {fileID: 970277417}
+  - {fileID: 1131129000}

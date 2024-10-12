@@ -72,16 +72,16 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
 
         Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
-        rgbd2d.velocity = stats.BaseData.DashSpeedMultiplier * stats.currentMovementSpeed * toMouse.normalized;
+        rgbd2d.velocity = stats.BaseStats.DashSpeedMultiplier * stats.currentMovementSpeed * toMouse.normalized;
 
         particleSystem.transform.rotation = mouseIndicator.rotationToMouse; 
         particleSystem.Play();
 
-        yield return new WaitForSeconds(stats.BaseData.DashDuration);
+        yield return new WaitForSeconds(stats.BaseStats.DashDuration);
         isDashing = false;
         particleSystem.Stop();
 
-        yield return new WaitForSeconds(stats.BaseData.DashCooldown);
+        yield return new WaitForSeconds(stats.BaseStats.DashCooldown);
         canDash = true;
     }
 

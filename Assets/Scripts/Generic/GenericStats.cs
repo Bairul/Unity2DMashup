@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class GenericStats : MonoBehaviour
 {
-    [SerializeField] protected GenericScriptableObject genericData;
+    [SerializeField] protected GenericScriptableObject genericStats;
 
     // iframe
     [SerializeField] private ImmunityFlash immunityFlash;
@@ -17,10 +17,10 @@ public abstract class GenericStats : MonoBehaviour
 
     protected virtual void Awake()
     {
-        currentMovementSpeed = genericData.MovementSpeed;
-        currentDamage = genericData.Damage;
-        currentHealth = genericData.MaxHealth;
-        invincibilityTimer = genericData.IFrameDuration;
+        currentMovementSpeed = genericStats.MovementSpeed;
+        currentDamage = genericStats.Damage;
+        currentHealth = genericStats.MaxHealth;
+        invincibilityTimer = genericStats.IFrameDuration;
         isInvincible = false;
     }
 
@@ -50,9 +50,9 @@ public abstract class GenericStats : MonoBehaviour
         }
         else
         {
-            invincibilityTimer = genericData.IFrameDuration;
+            invincibilityTimer = genericStats.IFrameDuration;
             isInvincible = true;
-            immunityFlash.Flash(genericData.IFrameDuration);
+            immunityFlash.Flash(genericStats.IFrameDuration);
         }
     }
 

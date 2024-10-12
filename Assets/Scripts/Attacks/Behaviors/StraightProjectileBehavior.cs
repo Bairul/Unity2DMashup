@@ -11,6 +11,6 @@ public class StraightProjectileBehavior : ProjectileBehavior
     }
 
     void FixedUpdate() {
-        transform.position += attackStats.currentSpeed * Time.deltaTime * direction;
+        transform.position += attackData.speed * Time.deltaTime * direction;
     }
 }

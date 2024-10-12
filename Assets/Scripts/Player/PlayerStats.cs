@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : GenericStats
 {
-    private CharacterScriptableObject baseData;
-    public CharacterScriptableObject BaseData {get => baseData;}
+    private CharacterScriptableObject baseStats;
+    public CharacterScriptableObject BaseStats {get => baseStats;}
 
     // current stats
     [HideInInspector] public float currentMagnetRange;
@@ -20,8 +18,8 @@ public class PlayerStats : GenericStats
     protected override void Awake()
     {
         base.Awake();
-        baseData = (CharacterScriptableObject) genericData;
-        currentMagnetRange = baseData.MagnetRange;
+        baseStats = (CharacterScriptableObject) genericStats;
+        currentMagnetRange = baseStats.MagnetRange;
     }
 
     void Start()
@@ -39,7 +37,7 @@ public class PlayerStats : GenericStats
 
     public void IncreaseExperience(int amount)
     {
-        if (currentLevel >= baseData.LastLevel) return;
+        if (currentLevel >= baseStats.LastLevel) return;
 
         currentExperience += amount;
         if (currentExperience >= currentExperienceCap)
@@ -53,22 +51,22 @@ public class PlayerStats : GenericStats
     // terrible code lol
     private void UpdateExperienceCap()
     {
-        if (baseData.ExperienceCapMode == ExperienceCapMode.FixedByLevelRange)
+        if (baseStats.ExperienceCapMode == ExperienceCapMode.FixedByLevelRange)
         {
-            if (currentRangeIndex >= baseData.LevelRanges.Count) return;
+            if (currentRangeIndex >= baseStats.LevelRanges.Count) return;
             
-            if (currentLevel > baseData.LevelRanges[currentRangeIndex].maxLevel)
+            if (currentLevel > baseStats.LevelRanges[currentRangeIndex].maxLevel)
             {
                 currentRangeIndex++;
             }
 
-            if (currentRangeIndex >= baseData.LevelRanges.Count) return;
+            if (currentRangeIndex >= baseStats.LevelRanges.Count) return;
 
-            currentExperienceCap = baseData.LevelRanges[currentRangeIndex].experienceCap;
+            currentExperienceCap = baseStats.LevelRanges[currentRangeIndex].experienceCap;
         }
         else
         {
-            currentExperienceCap = (int) (Mathf.Pow(currentLevel, baseData.XpFunctionExponent) * baseData.XpFunctionCoefficient + baseData.XpFunctionConstant);
+            currentExperienceCap = (int) (Mathf.Pow(currentLevel, baseStats.XpFunctionExponent) * baseStats.XpFunctionCoefficient + baseStats.XpFunctionConstant);
         }
     }
 

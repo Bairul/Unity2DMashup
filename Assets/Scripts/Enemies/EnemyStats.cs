@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class EnemyStats : GenericStats
 {
-    private EnemyScriptableObject baseData;
-    public EnemyScriptableObject BaseData {get => baseData;}
+    private EnemyScriptableObject baseStats;
+    public EnemyScriptableObject BaseStats {get => baseStats;}
 
     private DamageIndicator damageIndicator;
 
     protected override void Awake()
     {
         base.Awake();
-        baseData = (EnemyScriptableObject) genericData;
+        baseStats = (EnemyScriptableObject) genericStats;
         damageIndicator = GetComponent<DamageIndicator>();
     }
 

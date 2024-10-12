@@ -2,25 +2,25 @@ using UnityEngine;
 
 public class AttackStats : MonoBehaviour
 {
-    [SerializeField] private AttackScriptableObject baseData;
-    public AttackScriptableObject BaseData {get => baseData;}
+    [SerializeField] private AttackScriptableObject baseStats;
+    public AttackScriptableObject BaseStats {get => baseStats;}
 
     // Current Stats
-    [HideInInspector]
-    public float currentSpeed;
-    [HideInInspector]
-    public float currentPierce;
-    [HideInInspector]
-    public float currentDamage;
-    [HideInInspector]
-    public float currentCooldown;
+    [HideInInspector] public float currentSpeed;
+    [HideInInspector] public float currentPierce;
+    [HideInInspector] public float currentDamage;
+    [HideInInspector] public float currentCooldown;
+    [HideInInspector] public float currentRange;
+    [HideInInspector] public float currentLifespan;
 
     void Awake()
     {
-        currentSpeed = baseData.Speed;
-        currentPierce = baseData.Pierce;
-        currentDamage = baseData.Damage;
-        currentCooldown = baseData.CooldownDuration;
+        currentSpeed = baseStats.Speed;
+        currentPierce = baseStats.Pierce;
+        currentDamage = baseStats.Damage;
+        currentCooldown = baseStats.CooldownDuration;
+        currentRange = baseStats.Range;
+        currentLifespan = baseStats.Lifespan;
     }
 
     public bool CanAttack() 
@@ -36,15 +36,11 @@ public class AttackStats : MonoBehaviour
 
     public void ResetCooldown() 
     {
-        currentCooldown = baseData.CooldownDuration;
+        currentCooldown = baseStats.CooldownDuration;
     }
 
-    public void ReducePierce() 
+    public AttackData ToAttackData()
     {
-        currentPierce--;
-        if (currentPierce <= 0)
-        {
-            Destroy(gameObject);
-        }
+        return new AttackData(currentDamage, currentPierce, currentSpeed, currentLifespan);
     }
 }

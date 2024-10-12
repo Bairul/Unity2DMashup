@@ -27,4 +27,8 @@ public class AttackScriptableObject : ScriptableObject
     [SerializeField]
     private float lifespan;
     public float Lifespan { get => lifespan; private set => lifespan = value; }
+
+    [SerializeField]
+    private float range;
+    public float Range { get => range; private set => range = value; }
 }
