@@ -20,7 +20,7 @@ MonoBehaviour:
   critDamage: 2
   magnetRange: 3
   startingSkill: {fileID: 4004796502006310097, guid: b70417f3a3a828a4c9651c0d0209f977, type: 3}
-  dashCooldown: 4
+  dashCooldown: 2
   dashDuration: 0.25
   dashSpeedMultiplier: 4
   experienceCapMode: 0

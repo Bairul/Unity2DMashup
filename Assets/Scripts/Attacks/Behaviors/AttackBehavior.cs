@@ -24,8 +24,13 @@ public class AttackBehavior : MonoBehaviour
 
         if (attackData.pierce <= 0)
         {
-            Destroy(gameObject);
+            Kill();
         }
+    }
+
+    protected virtual void Kill()
+    {
+        Destroy(gameObject);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collider)
