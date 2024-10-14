@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a458b4ca87e9041a939311b6f0b20e, type: 3}
   m_Name: Slime
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1679519766998266750, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
   movementSpeed: 2
-  maxHealth: 2
-  damage: 5
-  attackCooldown: 0.75
+  maxHealth: 50
   iFrameDuration: 0.1
+  damage: 20
+  prefab: {fileID: 1679519766998266750, guid: c2d574a2f6e17214cada122b61a8271a, type: 3}
+  attackCooldown: 0.75

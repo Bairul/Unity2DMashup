@@ -14,9 +14,16 @@ public class EnemyStats : GenericStats
         damageIndicator = GetComponent<DamageIndicator>();
     }
 
-    protected override void Damage(float damage)
+    public void TakeDamage(AttackData attackData) 
     {
-        base.Damage(damage);
+        damageIndicator.isCrit = attackData.critDmg > 1;
+        float damage = attackData.damage * attackData.critDmg;
+        TakeDamage(damage);
+    }
+
+    protected override void DamageTaken(float damage)
+    {
+        base.DamageTaken(damage);
         damageIndicator.ShowDamage(damage);
     }
 

@@ -42,7 +42,7 @@ public abstract class GenericStats : MonoBehaviour
     {
         if (isInvincible) return;
         
-        Damage(damage);
+        DamageTaken(damage);
 
         if (currentHealth <= 0) 
         {
@@ -56,7 +56,7 @@ public abstract class GenericStats : MonoBehaviour
         }
     }
 
-    protected virtual void Damage(float damage)
+    protected virtual void DamageTaken(float damage)
     {
         currentHealth -= damage;
     }

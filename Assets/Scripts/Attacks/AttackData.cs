@@ -4,6 +4,7 @@ public class AttackData
     public float pierce;
     public float speed;
     public float lifespan;
+    public float critDmg;
 
     public AttackData(float damage, float pierce, float speed, float lifespan)
     {
@@ -11,5 +12,6 @@ public class AttackData
         this.pierce = pierce;
         this.speed = speed;
         this.lifespan = lifespan;
+        critDmg = 1;
     }
 }

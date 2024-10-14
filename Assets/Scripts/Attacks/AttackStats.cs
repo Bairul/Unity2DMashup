@@ -12,6 +12,7 @@ public class AttackStats : MonoBehaviour
     [HideInInspector] public float currentCooldown;
     [HideInInspector] public float currentRange;
     [HideInInspector] public float currentLifespan;
+    public float currentAttackMultiplier; // temporary, for testing purposes
 
     void Awake()
     {

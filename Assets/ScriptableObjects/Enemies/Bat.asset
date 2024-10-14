@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a458b4ca87e9041a939311b6f0b20e, type: 3}
   m_Name: Bat
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  maxHealth: 2
+  movementSpeed: 2.5
+  maxHealth: 50
   iFrameDuration: 0.1
-  damage: 5
+  damage: 20
   prefab: {fileID: 1945159499569780504, guid: 0722ad5a00c23bb4b970d77ae64791dc, type: 3}
   attackCooldown: 0.75

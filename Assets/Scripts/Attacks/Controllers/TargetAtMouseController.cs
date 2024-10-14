@@ -16,7 +16,7 @@ public class TargetAtMouseController : AttackController
         Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
         ProjectileBehavior projectileBehavior = attack.GetComponent<StraightProjectileBehavior>();
         
-        projectileBehavior.SetAttackData(attackStats.ToAttackData());
+        projectileBehavior.SetAttackData(GetAttackData());
         projectileBehavior.DirectionChecker(toMouse.normalized);
         projectileBehavior.RotateToDirection(mouseIndicator.rotationToMouse);
     }

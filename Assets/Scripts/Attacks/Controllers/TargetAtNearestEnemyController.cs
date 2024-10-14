@@ -15,7 +15,7 @@ public class TargetAtNearestEnemyController : AttackController
 
             ProjectileBehavior projectileBehavior = attack.GetComponent<ProjectileBehavior>();
         
-            projectileBehavior.SetAttackData(attackStats.ToAttackData());
+            projectileBehavior.SetAttackData(GetAttackData());
             projectileBehavior.DirectionChecker(toEnemy.normalized);
             projectileBehavior.RotateToDirection(Quaternion.Euler(0, 0, rotZ));
         }

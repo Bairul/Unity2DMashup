@@ -111,8 +111,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0}
-  prefab: {fileID: 8110691871357602929, guid: a9697ddfc8fddb44b8d0d3b4f3699ef2, type: 3}
+  prefabNormal: {fileID: 8110691871357602929, guid: a9697ddfc8fddb44b8d0d3b4f3699ef2, type: 3}
+  prefabCrit: {fileID: 6807152753596742737, guid: 7c57d43432faa1b44bc8b161d514aa4d, type: 3}
   duration: 1
+  isCrit: 0
 --- !u!114 &8969238042660599429
 MonoBehaviour:
   m_ObjectHideFlags: 0

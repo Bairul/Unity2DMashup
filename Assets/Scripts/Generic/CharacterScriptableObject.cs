@@ -10,6 +10,16 @@ public enum ExperienceCapMode
 [CreateAssetMenu(fileName ="CharacterScriptableObject", menuName ="ScriptableObjects/Character")]
 public class CharacterScriptableObject : GenericScriptableObject
 {
+    [Range(0,1)]
+    [SerializeField]
+    private float critRate;
+    public float CritRate { get => critRate; private set => critRate = value; }
+
+    [Range(1,15)]
+    [SerializeField]
+    private float critDamage;
+    public float CritDamage { get => critDamage; private set => critDamage = value; }
+
     [SerializeField]
     private float magnetRange;
     public float MagnetRange { get => magnetRange; private set => magnetRange = value; }

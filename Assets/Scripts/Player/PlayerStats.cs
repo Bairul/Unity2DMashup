@@ -7,6 +7,8 @@ public class PlayerStats : GenericStats
 
     // current stats
     [HideInInspector] public float currentMagnetRange;
+    [HideInInspector] public float currentCritRate;
+    [HideInInspector] public float currentCritDmg;
     [SerializeField] private PlayerCollector playerMagnet;
 
     // Experience
@@ -20,11 +22,12 @@ public class PlayerStats : GenericStats
         base.Awake();
         baseStats = (CharacterScriptableObject) genericStats;
         currentMagnetRange = baseStats.MagnetRange;
+        currentCritRate = baseStats.CritRate;
+        currentCritDmg = baseStats.CritDamage;
     }
 
     void Start()
     {
-        
         UpdateExperienceCap();
         UpdateMagnetRange(currentMagnetRange);
     }

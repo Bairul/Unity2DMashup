@@ -16,6 +16,6 @@ MonoBehaviour:
   speed: 5
   cooldownDuration: 3
   pierce: 1
-  damage: 2
+  damage: 20
   lifespan: 4
   range: 8

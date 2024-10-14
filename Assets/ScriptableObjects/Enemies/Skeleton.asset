@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a458b4ca87e9041a939311b6f0b20e, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  maxHealth: 5
+  movementSpeed: 1.5
+  maxHealth: 100
   iFrameDuration: 0.1
-  damage: 5
+  damage: 50
   prefab: {fileID: 1057974009928656043, guid: 55523e5be4207c6458da2fd97cb516ca, type: 3}
   attackCooldown: 1

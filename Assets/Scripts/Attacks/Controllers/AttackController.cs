@@ -9,7 +9,7 @@ using UnityEngine;
 public abstract class AttackController : MonoBehaviour
 {
     [SerializeField]
-    protected PlayerStats playerStats;
+    private PlayerStats playerStats;
 
     protected AttackStats attackStats;
 
@@ -25,6 +25,21 @@ public abstract class AttackController : MonoBehaviour
         {
             LaunchAttack();
         }
+    }
+
+    protected AttackData GetAttackData()
+    {
+        AttackData attackData = attackStats.ToAttackData();
+        // player atk scaling
+        attackData.damage += playerStats.currentDamage * attackStats.currentAttackMultiplier;
+
+        // crit mechanic
+        if (Random.value < playerStats.currentCritRate)
+        {
+            attackData.critDmg = playerStats.currentCritDmg;
+        }
+
+        return attackData;
     }
 
     protected abstract void LaunchAttack();

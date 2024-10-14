@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Char1
   m_EditorClassIdentifier: 
   movementSpeed: 4
-  maxHealth: 100
+  maxHealth: 200
   iFrameDuration: 0.1
-  damage: 1
+  damage: 20
+  critRate: 0.25
+  critDamage: 2
   magnetRange: 3
   startingSkill: {fileID: 4004796502006310097, guid: b70417f3a3a828a4c9651c0d0209f977, type: 3}
   dashCooldown: 4

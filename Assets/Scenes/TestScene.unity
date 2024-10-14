@@ -512,6 +512,7 @@ MonoBehaviour:
   currentCooldown: 0
   currentRange: 0
   currentLifespan: 0
+  currentAttackMultiplier: 0.5
 --- !u!1 &970277415
 GameObject:
   m_ObjectHideFlags: 0
@@ -6160,6 +6161,7 @@ MonoBehaviour:
   currentCooldown: 0
   currentRange: 0
   currentLifespan: 0
+  currentAttackMultiplier: 0.5
 --- !u!4 &7044061003432617526
 Transform:
   m_ObjectHideFlags: 0
@@ -6291,6 +6293,8 @@ MonoBehaviour:
   currentDamage: 0
   currentHealth: 0
   currentMagnetRange: 0
+  currentCritRate: 0
+  currentCritDmg: 0
   playerMagnet: {fileID: 1521344580}
   currentExperience: 0
   currentExperienceCap: 0
