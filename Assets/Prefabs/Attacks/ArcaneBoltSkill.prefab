@@ -309,8 +309,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1478033943
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 1543730420, guid: e93387a23fcbcbd43831dc50b3059f7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 8691299671109062233}
   - component: {fileID: 3309380714375404181}
   - component: {fileID: 5174484777149658843}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

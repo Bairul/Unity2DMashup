@@ -122,6 +122,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &256576860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 256576861}
+  - component: {fileID: 256576863}
+  - component: {fileID: 256576862}
+  m_Layer: 0
+  m_Name: WaterBallController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &256576861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256576860}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9167163988767412023}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &256576862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256576860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7fbe5a2a771e1428c20a252f30ec4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: 52dcdff707e9cf24686e03286b5c96cc, type: 2}
+  currentSpeed: 0
+  currentPierce: 0
+  currentDamage: 0
+  currentCooldown: 0
+  currentRange: 0
+  currentLifespan: 0
+  currentAttackMultiplier: 0.5
+  revolveCount: 1
+  isClockwise: 0
+--- !u!114 &256576863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256576860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c8581e50f98b4459eb47bbdb2107ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 9195751053264895492}
 --- !u!1001 &381585025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,7 +616,7 @@ MonoBehaviour:
       spawnWeight: 1
     - enemyPrefab: {fileID: 8785178338591577061, guid: b6191ec04cb97674fbe8cce6cdcb543f, type: 3}
       spawnWeight: 1
-    spawnInterval: 2
+    spawnInterval: 1.5
     killCountThreshold: 100
     timeLimit: 100
     totalEnemiesToSpawn: 15
@@ -557,7 +625,7 @@ MonoBehaviour:
       spawnWeight: 1
     - enemyPrefab: {fileID: 2747346088523963059, guid: 45ac5d7302682294aa6ed04bd9868110, type: 3}
       spawnWeight: 1
-    spawnInterval: 2
+    spawnInterval: 1.5
     killCountThreshold: 100
     timeLimit: 100
     totalEnemiesToSpawn: 15
@@ -6271,6 +6339,7 @@ Transform:
   - {fileID: 1521344578}
   - {fileID: 3985601010103614245}
   - {fileID: 959147397}
+  - {fileID: 256576861}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9195751053264895492

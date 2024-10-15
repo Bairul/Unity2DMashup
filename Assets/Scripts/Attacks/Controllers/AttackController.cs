@@ -27,7 +27,7 @@ public abstract class AttackController : MonoBehaviour
         }
     }
 
-    protected AttackData GetAttackData()
+    protected virtual AttackData GetAttackData()
     {
         AttackData attackData = attackStats.ToAttackData();
         // player atk scaling

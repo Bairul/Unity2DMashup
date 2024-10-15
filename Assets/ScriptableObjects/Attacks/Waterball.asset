@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3df926693646a334b85943bd2dea18c7, type: 3}
-  m_Name: Fireball
+  m_Name: Waterball
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2288747967158037509, guid: 9bef33563dd189f42beee07bdafa9ca2, type: 3}
-  speed: 5
-  cooldownDuration: 3
+  prefab: {fileID: 4073401575981382054, guid: 15173c757d2e6854c844a66f5a0a5459, type: 3}
+  speed: 8
+  cooldownDuration: 4
   pierce: 1
-  damage: 20
+  damage: 10
   lifespan: 4
-  range: 8
+  range: 2
