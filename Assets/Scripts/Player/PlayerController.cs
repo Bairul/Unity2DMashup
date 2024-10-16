@@ -20,8 +20,12 @@ public class PlayerController : MonoBehaviour
     private PlayerStats stats;
     private Rigidbody2D rgbd2d;
     private Vector2 mvt;
+    private Vector2 lastMvt;
     private bool canDash;
     private bool isDashing;
+
+    // Getters
+    public Vector2 LastMovementDirection { get => lastMvt; }
 
     // Awake is called before Start. Frequently used to get internal components and initialize fields
     void Awake()
@@ -31,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
         canDash = true;
         isDashing = false;
+        lastMvt = new(1f, 0);
     }
 
     // Used when referencing other objects and their components or after Awake
@@ -56,6 +61,12 @@ public class PlayerController : MonoBehaviour
             playerHitbox.localScale = RIGHT;
             playerFeetbox.localScale = RIGHT;
         }
+
+        if (mvt.x != 0 || mvt.y != 0)
+        {
+            lastMvt.x = mvt.x;
+            lastMvt.y = mvt.y;
+        }
     }
 
     void CheckDash()
@@ -73,6 +84,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
         rgbd2d.velocity = stats.BaseStats.DashSpeedMultiplier * stats.currentMovementSpeed * toMouse.normalized;
+
+        lastMvt.x = animate.mouseRight ? 1.0f : -1.0f;
+        lastMvt.y = 0;
 
         particleSystem.transform.rotation = mouseIndicator.rotationToMouse; 
         particleSystem.Play();
