@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyStats : GenericStats
@@ -16,8 +18,10 @@ public class EnemyStats : GenericStats
 
     public void TakeDamage(AttackData attackData) 
     {
-        damageIndicator.isCrit = attackData.critDmg > 1;
+        damageIndicator.isCrit = attackData.critDmg > 1; // if there is a crit, then crit dmg is greater than 1
+        
         float damage = attackData.damage * attackData.critDmg;
+        damage *= GameWorld.Instance.GetElementalDamageModifier(attackData.element, baseStats.EnemyType);
         TakeDamage(damage);
     }
 

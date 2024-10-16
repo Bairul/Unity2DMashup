@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class RevolvePlayerController : AttackController
 {
-    private RevolveAttackStats revolveAttackStats;
     private float lifespanTimer;
 
     protected override void Awake()
     {
         base.Awake();
-        revolveAttackStats = (RevolveAttackStats) attackStats;
-        lifespanTimer = revolveAttackStats.currentLifespan;
+        lifespanTimer = attackStats.currentLifespan;
     }
 
     protected override void LateUpdate()
@@ -21,29 +19,22 @@ public class RevolvePlayerController : AttackController
         if (lifespanTimer <= 0 && attackStats.CanAttack())
         {
             LaunchAttack();
-            lifespanTimer = revolveAttackStats.currentLifespan;
+            lifespanTimer = attackStats.currentLifespan;
         }
-    }
-
-    protected override AttackData GetAttackData()
-    {
-        AttackData attackData = base.GetAttackData();
-        attackData.range = attackStats.currentRange;
-        return attackData;
     }
 
     protected override void LaunchAttack()
     {
-        float ang = 2 * Mathf.PI / revolveAttackStats.revolveCount;
+        float ang = 2 * Mathf.PI / attackStats.currentCount;
 
-        for (int i = 0; i < revolveAttackStats.revolveCount; i++)
+        for (int i = 0; i < attackStats.currentCount; i++)
         {
             GameObject attack = Instantiate(attackStats.BaseStats.Prefab);
             attack.transform.position = transform.position;
 
             float angle = i * ang;
             Vector3 displace = new(Mathf.Cos(angle), Mathf.Sin(angle));
-            displace *= revolveAttackStats.currentRange;
+            displace *= attackStats.currentRange;
 
             attack.transform.position += displace;
 

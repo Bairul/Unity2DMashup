@@ -16,5 +16,5 @@ MonoBehaviour:
   maxHealth: 100
   iFrameDuration: 0.1
   damage: 50
-  prefab: {fileID: 1057974009928656043, guid: 55523e5be4207c6458da2fd97cb516ca, type: 3}
+  enemyType: 1
   attackCooldown: 1

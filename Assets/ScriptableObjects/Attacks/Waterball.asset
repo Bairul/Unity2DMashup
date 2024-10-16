@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Waterball
   m_EditorClassIdentifier: 
   prefab: {fileID: 4073401575981382054, guid: 15173c757d2e6854c844a66f5a0a5459, type: 3}
+  element: 2
   speed: 8
   cooldownDuration: 4
   pierce: 1
   damage: 10
   lifespan: 4
   range: 2
+  count: 2

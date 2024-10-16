@@ -12,6 +12,7 @@ public class AttackStats : MonoBehaviour
     [HideInInspector] public float currentCooldown;
     [HideInInspector] public float currentRange;
     [HideInInspector] public float currentLifespan;
+    [HideInInspector] public float currentCount;
     public float currentAttackMultiplier; // temporary, for testing purposes
 
     void Awake()
@@ -22,6 +23,7 @@ public class AttackStats : MonoBehaviour
         currentCooldown = baseStats.CooldownDuration;
         currentRange = baseStats.Range;
         currentLifespan = baseStats.Lifespan;
+        currentCount = baseStats.Count;
     }
 
     public bool CanAttack() 
@@ -42,6 +44,6 @@ public class AttackStats : MonoBehaviour
 
     public AttackData ToAttackData()
     {
-        return new AttackData(currentDamage, currentPierce, currentSpeed, currentLifespan);
+        return new AttackData(baseStats.Element, currentDamage, currentPierce, currentSpeed, currentLifespan, currentRange);
     }
 }

@@ -1,11 +1,25 @@
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+
+public enum ElementalType
+{
+    Arcane,
+    Fire,
+    Water,
+    Earth,
+    Wind
+}
 
 [CreateAssetMenu(fileName ="AttackScriptableObject", menuName ="ScriptableObjects/Attack")]
 public class AttackScriptableObject : ScriptableObject
 {
     [SerializeField]
     private GameObject prefab;
-    public GameObject Prefab { get => prefab; private set => prefab = value;}
+    public GameObject Prefab { get => prefab; private set => prefab = value; }
+
+    [SerializeField]
+    private ElementalType element;
+    public ElementalType Element { get => element; private set => element = value; }
 
     [Header("Base Stats")]
     [SerializeField]
@@ -31,4 +45,8 @@ public class AttackScriptableObject : ScriptableObject
     [SerializeField]
     private float range;
     public float Range { get => range; private set => range = value; }
+
+    [SerializeField]
+    private float count;
+    public float Count { get => count; private set => count = value; }
 }

@@ -174,8 +174,8 @@ MonoBehaviour:
   currentCooldown: 0
   currentRange: 0
   currentLifespan: 0
+  currentCount: 0
   currentAttackMultiplier: 0.5
-  revolveCount: 1
   isClockwise: 0
 --- !u!114 &256576863
 MonoBehaviour:
@@ -580,6 +580,7 @@ MonoBehaviour:
   currentCooldown: 0
   currentRange: 0
   currentLifespan: 0
+  currentCount: 0
   currentAttackMultiplier: 0.5
 --- !u!1 &970277415
 GameObject:
@@ -776,6 +777,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 9167163988767412023}
+  elementalDamageBonus: 0.25
+  elementalDamageResist: 0.1
 --- !u!4 &1131129000
 Transform:
   m_ObjectHideFlags: 0
@@ -6229,6 +6232,7 @@ MonoBehaviour:
   currentCooldown: 0
   currentRange: 0
   currentLifespan: 0
+  currentCount: 0
   currentAttackMultiplier: 0.5
 --- !u!4 &7044061003432617526
 Transform:
