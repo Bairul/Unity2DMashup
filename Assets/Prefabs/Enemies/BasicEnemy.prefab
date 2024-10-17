@@ -417,5 +417,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootItems:
-  - item: {fileID: 4315425234385956554, guid: 7fb08df28756a554a822b67f0ad54f36, type: 3}
+  - prefab: {fileID: 4315425234385956554, guid: 7fb08df28756a554a822b67f0ad54f36, type: 3}
     weight: 1

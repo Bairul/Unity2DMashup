@@ -4,8 +4,13 @@ public class MouseIndicator : MonoBehaviour
 {
     [SerializeField]
     private Camera mainCamera;
+
+    [HideInInspector]
     public Vector3 mousePos;
+
+    [HideInInspector]
     public Vector3 mouseDir;
+    
     public Quaternion rotationToMouse;
 
     void Update()

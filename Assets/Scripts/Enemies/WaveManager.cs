@@ -60,9 +60,9 @@ public class WaveManager : MonoBehaviour
                 Debug.LogWarning("A wave have no enemy spawns");
                 isSpawning = false;
             }
-            foreach (EnemySpawn enemySpawn in wave.enemySpawns)
+            foreach (WeightedObject enemySpawn in wave.enemySpawns)
             {
-                if (enemySpawn.spawnWeight <= 0)
+                if (enemySpawn.weight <= 0)
                 {
                     Debug.LogError("An enemy spawn have non-positive weights");
                     isSpawning = false;
@@ -159,9 +159,9 @@ public class WaveManager : MonoBehaviour
     {
         // Sum up the total weights
         int totalWeight = 0;
-        foreach (EnemySpawn enemySpawn in wave.enemySpawns)
+        foreach (WeightedObject enemySpawn in wave.enemySpawns)
         {
-            totalWeight += enemySpawn.spawnWeight;
+            totalWeight += enemySpawn.weight;
         }
 
         // Pick a random number between 0 and totalWeight - 1
@@ -169,17 +169,17 @@ public class WaveManager : MonoBehaviour
         int cumulativeWeight = 0;
 
         // Select the enemy based on the random weight
-        foreach (EnemySpawn enemySpawn in wave.enemySpawns)
+        foreach (WeightedObject enemySpawn in wave.enemySpawns)
         {
-            cumulativeWeight += enemySpawn.spawnWeight;
+            cumulativeWeight += enemySpawn.weight;
             if (randomWeight < cumulativeWeight)
             {
-                return enemySpawn.enemyPrefab;
+                return enemySpawn.prefab;
             }
         }
 
         Debug.LogError("Bad spawn weight");
-        return wave.enemySpawns[0].enemyPrefab; // Default fallback, this line should never be reached
+        return wave.enemySpawns[0].prefab; // Default fallback, this line should never be reached
     }
 
     bool IsOnRestrictedTile(Vector2 position)

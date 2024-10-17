@@ -10,6 +10,7 @@ public class PlayerStats : GenericStats
     [HideInInspector] public float currentCritRate;
     [HideInInspector] public float currentCritDmg;
     [SerializeField] private PlayerCollector playerMagnet;
+    [SerializeField] private PlayerInventoryManager playerInventory;
 
     // Experience
     public int currentExperience;
@@ -24,6 +25,8 @@ public class PlayerStats : GenericStats
         currentMagnetRange = baseStats.MagnetRange;
         currentCritRate = baseStats.CritRate;
         currentCritDmg = baseStats.CritDamage;
+
+        playerInventory.ObtainStarterSkill(baseStats.StarterSkill, this);
     }
 
     void Start()
@@ -37,6 +40,14 @@ public class PlayerStats : GenericStats
         currentMagnetRange = radius;
         playerMagnet.Range.radius = currentMagnetRange;
     }
+    void LevelUp()
+    {
+        currentLevel++;
+        currentExperience -= currentExperienceCap;
+        UpdateExperienceCap();
+
+        playerInventory.ObtainRandomSkill(baseStats.SkillPool, this);
+    }
 
     public void IncreaseExperience(int amount)
     {
@@ -45,9 +56,7 @@ public class PlayerStats : GenericStats
         currentExperience += amount;
         if (currentExperience >= currentExperienceCap)
         {
-            currentLevel++;
-            currentExperience -= currentExperienceCap;
-            UpdateExperienceCap();
+            LevelUp();
         }
     }
 

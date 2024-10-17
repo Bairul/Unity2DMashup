@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(PlayerStats))]
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerAnimate animate;
     [SerializeField] private Transform playerHitbox;
     [SerializeField] private Transform playerFeetbox;
-    [SerializeField] private MouseIndicator mouseIndicator;
     [SerializeField] private new ParticleSystem particleSystem;
+    public MouseIndicator mouseIndicator;
 
     // private fields
     private PlayerStats stats;

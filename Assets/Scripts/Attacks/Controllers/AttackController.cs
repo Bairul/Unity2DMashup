@@ -8,10 +8,14 @@ using UnityEngine;
 
 public abstract class AttackController : MonoBehaviour
 {
-    [SerializeField]
     private PlayerStats playerStats;
 
     protected AttackStats attackStats;
+
+    public void SetPlayerStats(PlayerStats stats)
+    {
+        playerStats = stats;
+    }
 
     protected virtual void Awake()
     {

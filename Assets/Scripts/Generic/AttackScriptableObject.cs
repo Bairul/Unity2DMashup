@@ -49,4 +49,17 @@ public class AttackScriptableObject : ScriptableObject
     [SerializeField]
     private float count;
     public float Count { get => count; private set => count = value; }
+
+    [Header("Crowd Control")] // do this later
+    [SerializeField]
+    private float knockBack;
+    public float KnockBack { get => knockBack; private set => knockBack = value; }
+
+    [SerializeField]
+    private float knockUp;
+    public float KnockUp { get => knockUp; private set => knockUp = value; }
+
+    [SerializeField]
+    private float stunDuration;
+    public float StunDuration { get => stunDuration; private set => stunDuration = value; }
 }

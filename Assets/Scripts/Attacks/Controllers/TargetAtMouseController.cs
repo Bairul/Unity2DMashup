@@ -5,8 +5,12 @@ using UnityEngine;
 /// </summary>
 public class TargetAtMouseController : AttackController
 {
-    [SerializeField]
     private MouseIndicator mouseIndicator;
+
+    void Start()
+    {
+        mouseIndicator = GameWorld.Instance.PlayerMouseIndicator;
+    }
 
     protected override void LaunchAttack()
     {

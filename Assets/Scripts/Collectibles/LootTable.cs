@@ -1,18 +1,9 @@
 using UnityEngine;
 
-// Define the Loot Item
-[System.Serializable]
-public class Loot
-{
-    [Header("The loot prefab (can be an empty)")]
-    public GameObject item;  // The loot item (can be an empty game object for "no loot")
-    public int weight;       // The weight of this loot
-}
-
 public class LootTable : MonoBehaviour
 {
     [Header("Loot Table")]
-    [SerializeField] private Loot[] lootItems;  // Array of loot items with weights
+    [SerializeField] private WeightedObject[] lootItems;  // Array of loot items with weights
 
     private bool canDrop;
 
@@ -28,7 +19,7 @@ public class LootTable : MonoBehaviour
         {
             canDrop = false;
         }
-        foreach (Loot loot in lootItems)
+        foreach (WeightedObject loot in lootItems)
         {
             if (loot.weight <= 0)
             {
@@ -43,7 +34,7 @@ public class LootTable : MonoBehaviour
     {
         // Calculate the total weight of all loot items
         int totalWeight = 0;
-        foreach (Loot loot in lootItems)
+        foreach (WeightedObject loot in lootItems)
         {
             totalWeight += loot.weight;
         }
@@ -53,12 +44,12 @@ public class LootTable : MonoBehaviour
         int cumulativeWeight = 0;
 
         // Determine which loot to drop based on random value
-        foreach (Loot loot in lootItems)
+        foreach (WeightedObject loot in lootItems)
         {
             cumulativeWeight += loot.weight;
             if (randomValue < cumulativeWeight)
             {
-                return loot.item; // Return the loot item or null if it's "empty"
+                return loot.prefab; // Return the loot item or null if it's "empty"
             }
         }
 

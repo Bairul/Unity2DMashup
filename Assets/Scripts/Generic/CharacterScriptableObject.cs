@@ -24,10 +24,6 @@ public class CharacterScriptableObject : GenericScriptableObject
     private float magnetRange;
     public float MagnetRange { get => magnetRange; private set => magnetRange = value; }
 
-    [SerializeField]
-    private GameObject startingSkill;
-    public GameObject StartingSkill { get => startingSkill; private set => startingSkill = value;}
-
     [Header("Dash Stats")]
     [SerializeField]
     private float dashCooldown;
@@ -63,7 +59,20 @@ public class CharacterScriptableObject : GenericScriptableObject
     [SerializeField]
     private float xpFunctionExponent;
     public float XpFunctionExponent { get => xpFunctionExponent; }
+
     [SerializeField]
     private float xpFunctionConstant;
     public float XpFunctionConstant { get => xpFunctionConstant; }
+
+    [Header("Skills")]
+    [SerializeField]
+    private List<WeightedObject> skillPool;
+    public List<WeightedObject> SkillPool { get => skillPool; }
+
+    [SerializeField]
+    private GameObject starterSkill;
+    public GameObject StarterSkill { get => starterSkill; }
+
+    [SerializeField]
+    private GameObject dashSkill;
 }

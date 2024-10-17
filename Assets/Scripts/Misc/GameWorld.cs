@@ -25,6 +25,7 @@ public class GameWorld : MonoBehaviour
     // Getters
     public Transform PlayerTransform {get => playerController.gameObject.transform; }
     public Vector2 LastPlayerMovement {get => playerController.LastMovementDirection; }
+    public MouseIndicator PlayerMouseIndicator {get => playerController.mouseIndicator; }
 
     private void Awake()
     {
