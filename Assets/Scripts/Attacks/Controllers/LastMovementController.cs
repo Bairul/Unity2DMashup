@@ -7,7 +7,7 @@ public class LastMovementController : AttackController
         GameObject attack = Instantiate(attackStats.BaseStats.Prefab);
         attack.transform.position = transform.position;
         
-        Vector3 dir = GameWorld.Instance.LastPlayerMovement;
+        Vector3 dir = GameWorld.Instance.GetPlayerController.LastMovementDirection;
         float rotZ =  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
         ProjectileBehavior projectileBehavior = attack.GetComponent<ProjectileBehavior>();

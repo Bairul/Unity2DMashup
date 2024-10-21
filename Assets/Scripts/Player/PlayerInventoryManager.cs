@@ -6,13 +6,23 @@ public class PlayerInventoryManager : MonoBehaviour
 {
     public int maxSkillSlots = 5;
     public GameObject[] attackSlots;
+    public GameObject[] attributeSlots;
     public GameObject starterSlot;
+    public GameObject dashSlot;
 
     private int attackSlotIndex;
+    private int attributeSlotIndex;
+    private PlayerStats playerStats;
 
     void Awake()
     {
        attackSlots = new GameObject[maxSkillSlots];
+       attributeSlots = new GameObject[maxSkillSlots];
+    }
+
+    public void SetPlayerStats(PlayerStats playerStats)
+    {
+        this.playerStats = playerStats;
     }
 
     GameObject GetRandomSkillBasedOnWeight(List<WeightedObject> skillPool)
@@ -28,8 +38,6 @@ public class PlayerInventoryManager : MonoBehaviour
         int randomValue = Random.Range(0, totalWeight);
         int cumulativeWeight = 0;
 
-        Debug.Log(randomValue);
-
         // Determine which loot to drop based on random value
         foreach (WeightedObject skill in skillPool)
         {
@@ -44,7 +52,7 @@ public class PlayerInventoryManager : MonoBehaviour
         return null; // this line should never be reached
     }
 
-    public void ObtainRandomSkill(List<WeightedObject> skillPool, PlayerStats playerStats)
+    public void ObtainRandomSkill(List<WeightedObject> skillPool)
     {
         if (attackSlotIndex >= maxSkillSlots)
         {
@@ -62,13 +70,21 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
-    public void ObtainStarterSkill(GameObject startSkill, PlayerStats playerStats)
+    public void ObtainStarterSkill(GameObject startSkill)
     {
         if (starterSlot == null && startSkill != null)
         {
             starterSlot = Instantiate(startSkill, transform);
             AttackController ctrl = starterSlot.GetComponent<AttackController>();
             ctrl.SetPlayerStats(playerStats);
+        }
+    }
+
+    public void ObtainDashSkill(GameObject dashSkill)
+    {
+        if (dashSlot == null && dashSkill != null)
+        {
+            dashSlot = Instantiate(dashSkill, transform);
         }
     }
 }

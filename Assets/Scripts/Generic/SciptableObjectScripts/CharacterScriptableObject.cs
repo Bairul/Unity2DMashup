@@ -24,19 +24,6 @@ public class CharacterScriptableObject : GenericScriptableObject
     private float magnetRange;
     public float MagnetRange { get => magnetRange; private set => magnetRange = value; }
 
-    [Header("Dash Stats")]
-    [SerializeField]
-    private float dashCooldown;
-    public float DashCooldown { get => dashCooldown; private set => dashCooldown = value; }
-
-    [SerializeField]
-    private float dashDuration;
-    public float DashDuration { get => dashDuration; private set => dashDuration = value; }
-
-    [SerializeField]
-    private float dashSpeedMultiplier;
-    public float DashSpeedMultiplier { get => dashSpeedMultiplier; private set => dashSpeedMultiplier = value; }
-
     [Header("Experience")]
     [SerializeField]
     private ExperienceCapMode experienceCapMode;
@@ -75,4 +62,5 @@ public class CharacterScriptableObject : GenericScriptableObject
 
     [SerializeField]
     private GameObject dashSkill;
+    public GameObject DashSkill { get => dashSkill; }
 }

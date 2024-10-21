@@ -23,9 +23,8 @@ public class GameWorld : MonoBehaviour
     private Dictionary<string, float> elementalDamageTable;
 
     // Getters
-    public Transform PlayerTransform {get => playerController.gameObject.transform; }
-    public Vector2 LastPlayerMovement {get => playerController.LastMovementDirection; }
-    public MouseIndicator PlayerMouseIndicator {get => playerController.mouseIndicator; }
+    public Transform GetPlayerTransform {get => playerController.gameObject.transform; }
+    public PlayerController GetPlayerController {get => playerController; }
 
     private void Awake()
     {
@@ -78,7 +77,7 @@ public class GameWorld : MonoBehaviour
     public void UpdateNearestEnemy(GameObject enemy)
     {
         Vector3 enemyPos = enemy.transform.position;
-        Vector3 distance = PlayerTransform.position - enemyPos;
+        Vector3 distance = GetPlayerTransform.position - enemyPos;
         float distanceSq = distance.sqrMagnitude;
 
         if (distanceSq < nearestEnemyDistanceSq)

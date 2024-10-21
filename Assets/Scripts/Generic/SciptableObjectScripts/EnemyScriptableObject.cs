@@ -14,7 +14,6 @@ public class EnemyScriptableObject : GenericScriptableObject
     private EnemyType enemyType;
     public EnemyType EnemyType { get => enemyType; private set => enemyType = value; }
 
-    [Header("Base Stats")]
     [SerializeField]
     private float attackCooldown;
     public float AttackCooldown { get => attackCooldown; private set => attackCooldown = value; }

@@ -19,9 +19,6 @@ MonoBehaviour:
   critRate: 0.25
   critDamage: 1.5
   magnetRange: 3
-  dashCooldown: 2
-  dashDuration: 0.25
-  dashSpeedMultiplier: 4
   experienceCapMode: 0
   lastLevel: 10
   levelRanges:
@@ -40,4 +37,4 @@ MonoBehaviour:
   - prefab: {fileID: 8791517268364318938, guid: bc35cd81ba9e79a4586d58b866dfd68e, type: 3}
     weight: 1
   starterSkill: {fileID: 6561270386445830677, guid: 367938467125e3e44921283c95dd5a69, type: 3}
-  dashSkill: {fileID: 0}
+  dashSkill: {fileID: 2968612685556112957, guid: 404124a93131f82489fe072a2c238a01, type: 3}

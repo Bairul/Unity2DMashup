@@ -26,7 +26,9 @@ public class PlayerStats : GenericStats
         currentCritRate = baseStats.CritRate;
         currentCritDmg = baseStats.CritDamage;
 
-        playerInventory.ObtainStarterSkill(baseStats.StarterSkill, this);
+        playerInventory.SetPlayerStats(this);
+        playerInventory.ObtainStarterSkill(baseStats.StarterSkill);
+        playerInventory.ObtainDashSkill(baseStats.DashSkill);
     }
 
     void Start()
@@ -46,7 +48,7 @@ public class PlayerStats : GenericStats
         currentExperience -= currentExperienceCap;
         UpdateExperienceCap();
 
-        playerInventory.ObtainRandomSkill(baseStats.SkillPool, this);
+        playerInventory.ObtainRandomSkill(baseStats.SkillPool);
     }
 
     public void IncreaseExperience(int amount)

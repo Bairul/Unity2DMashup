@@ -13,19 +13,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerAnimate animate;
     [SerializeField] private Transform playerHitbox;
     [SerializeField] private Transform playerFeetbox;
-    [SerializeField] private new ParticleSystem particleSystem;
-    public MouseIndicator mouseIndicator;
+    [SerializeField] private MouseIndicator mouseIndicator;
 
     // private fields
     private PlayerStats stats;
     private Rigidbody2D rgbd2d;
     private Vector2 mvt;
     private Vector2 lastMvt;
-    private bool canDash;
-    private bool isDashing;
+
+    public bool canMove;
 
     // Getters
     public Vector2 LastMovementDirection { get => lastMvt; }
+    public MouseIndicator PlayerMouseIndicator { get => mouseIndicator; }
+    public Rigidbody2D PlayerRigidBody { get => rgbd2d; }
+    public float PlayerMovementSpeed { get => stats.currentMovementSpeed; }
 
     // Awake is called before Start. Frequently used to get internal components and initialize fields
     void Awake()
@@ -33,9 +35,8 @@ public class PlayerController : MonoBehaviour
         rgbd2d = GetComponent<Rigidbody2D>();
         stats = GetComponent<PlayerStats>();
 
-        canDash = true;
-        isDashing = false;
         lastMvt = new(1f, 0);
+        canMove = true;
     }
 
     // Used when referencing other objects and their components or after Awake
@@ -69,47 +70,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void CheckDash()
-    {
-        if (canDash && Input.GetButton("Dash"))
-        {
-            StartCoroutine(Dash());
-        }
-    }
-
-    private IEnumerator Dash()
-    {
-        canDash = false;
-        isDashing = true;
-
-        Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
-        rgbd2d.velocity = stats.BaseStats.DashSpeedMultiplier * stats.currentMovementSpeed * toMouse.normalized;
-
-        lastMvt.x = animate.mouseRight ? 1.0f : -1.0f;
-        lastMvt.y = 0;
-
-        particleSystem.transform.rotation = mouseIndicator.rotationToMouse; 
-        particleSystem.Play();
-
-        yield return new WaitForSeconds(stats.BaseStats.DashDuration);
-        isDashing = false;
-        particleSystem.Stop();
-
-        yield return new WaitForSeconds(stats.BaseStats.DashCooldown);
-        canDash = true;
-    }
-
     // Update is called once per frame
     void Update() {
         PlayerMovement();
-        CheckDash();
         stats.CheckIFrame();
     }
     
     // FixedUpdate is called at fixed intervals
     void FixedUpdate()
     {
-        if (isDashing) return;
+        if (!canMove) return;
 
         rgbd2d.velocity = mvt.normalized * stats.currentMovementSpeed;
     }

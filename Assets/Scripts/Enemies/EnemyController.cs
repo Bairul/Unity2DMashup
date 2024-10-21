@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     }
 
     void Start() {
-        player = GameWorld.Instance.PlayerTransform;
+        player = GameWorld.Instance.GetPlayerTransform;
         canAttack = true;
     }
 

@@ -18,10 +18,10 @@ public class RevolvingAttackBehavior : ProjectileBehavior
         direction = new Vector3(x, y, 0f) * attackData.range;
         Vector3 perp = new(-y, x);
 
-        transform.position = direction + GameWorld.Instance.PlayerTransform.position;
+        transform.position = direction + GameWorld.Instance.GetPlayerTransform.position;
         transform.position += attackData.speed * Time.deltaTime * perp;
 
-        Vector3 newDir = transform.position - GameWorld.Instance.PlayerTransform.position;
+        Vector3 newDir = transform.position - GameWorld.Instance.GetPlayerTransform.position;
 
         currentAngle = Mathf.Atan2(newDir.y, newDir.x);
 

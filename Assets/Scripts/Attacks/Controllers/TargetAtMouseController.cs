@@ -9,7 +9,7 @@ public class TargetAtMouseController : AttackController
 
     void Start()
     {
-        mouseIndicator = GameWorld.Instance.PlayerMouseIndicator;
+        mouseIndicator = GameWorld.Instance.GetPlayerController.PlayerMouseIndicator;
     }
 
     protected override void LaunchAttack()
