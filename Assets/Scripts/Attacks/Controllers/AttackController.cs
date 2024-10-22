@@ -32,22 +32,24 @@ public abstract class AttackController : MonoBehaviour
 
     protected virtual AttackData GetAttackData()
     {
-        AttackData attackData = attackStats.ToAttackData();
-        // player atk scaling
-        attackData.damage += playerStats.currentDamage * attackStats.currentAttackMultiplier;
-
-        // crit mechanic
-        if (Random.value < playerStats.currentCritRate)
-        {
-            attackData.critDmg = playerStats.currentCritDmg;
-        }
-
-        return attackData;
+        return new AttackData(attackStats, playerStats);
     }
 
     public ElementalType PreGetElementalType()
     {
         return GetComponent<AttackStats>().BaseStats.Element;
+    }
+
+    protected virtual void InstantiateAttack(Vector3 direction, Quaternion rotation)
+    {
+        GameObject attack = Instantiate(attackStats.BaseStats.Prefab);
+        attack.transform.position = transform.position;
+
+        ProjectileBehavior projectileBehavior = attack.GetComponent<ProjectileBehavior>();
+        
+        projectileBehavior.SetAttackData(GetAttackData());
+        projectileBehavior.DirectionChecker(direction);
+        projectileBehavior.RotateToDirection(rotation);
     }
 
     protected abstract void LaunchAttack();

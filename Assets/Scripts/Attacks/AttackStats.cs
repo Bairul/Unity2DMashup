@@ -41,9 +41,4 @@ public class AttackStats : MonoBehaviour
     {
         currentCooldown = baseStats.CooldownDuration;
     }
-
-    public AttackData ToAttackData()
-    {
-        return new AttackData(baseStats.Element, currentDamage, currentPierce, currentSpeed, currentLifespan, currentRange);
-    }
 }
