@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1637377431701285357}
-  - component: {fileID: -2036787348013373573}
   - component: {fileID: -2119667133561956777}
+  - component: {fileID: -2036787348013373573}
   m_Layer: 3
   m_Name: WindBlowSkill
   m_TagString: Untagged
@@ -34,6 +34,18 @@ Transform:
   - {fileID: 508825862342497022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2119667133561956777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544469745319454840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55c52fd4f6c9ef4184f77d925176962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &-2036787348013373573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79,18 +91,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-2119667133561956777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544469745319454840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b55c52fd4f6c9ef4184f77d925176962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7455784349659377232
 GameObject:
   m_ObjectHideFlags: 0

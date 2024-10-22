@@ -1,12 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ExperienceCapMode
-{
-    FixedByLevelRange,
-    FunctionScaling
-}
-
 [CreateAssetMenu(fileName ="CharacterScriptableObject", menuName ="ScriptableObjects/Character")]
 public class CharacterScriptableObject : GenericScriptableObject
 {
@@ -53,8 +47,8 @@ public class CharacterScriptableObject : GenericScriptableObject
 
     [Header("Skills")]
     [SerializeField]
-    private List<WeightedObject> skillPool;
-    public List<WeightedObject> SkillPool { get => skillPool; }
+    private List<ElementalType> elementalAffinities;
+    public List<ElementalType> ElementalAffinities { get => elementalAffinities; }
 
     [SerializeField]
     private GameObject starterSkill;

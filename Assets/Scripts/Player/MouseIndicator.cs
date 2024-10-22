@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class MouseIndicator : MonoBehaviour
 {
-    [SerializeField]
-    private Camera mainCamera;
+    [SerializeField] private Camera mainCamera;
 
-    [HideInInspector]
-    public Vector3 mousePos;
+    [HideInInspector] public Vector3 mousePos;
 
-    [HideInInspector]
-    public Vector3 mouseDir;
+    [HideInInspector] public Vector3 mouseDir;
     
-    public Quaternion rotationToMouse;
+    [HideInInspector] public Quaternion rotationToMouse;
 
     void Update()
     {

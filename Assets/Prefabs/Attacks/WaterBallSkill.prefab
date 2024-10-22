@@ -154,8 +154,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4664378763595627764}
-  - component: {fileID: 8781840904122208905}
   - component: {fileID: -4310095204895078321}
+  - component: {fileID: 8781840904122208905}
   m_Layer: 3
   m_Name: WaterBallSkill
   m_TagString: Untagged
@@ -180,6 +180,19 @@ Transform:
   - {fileID: 8602983373078870776}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4310095204895078321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4073401575981382054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786496f0c11ef0f4ba1983db5fd09599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAngle: 0
 --- !u!61 &8781840904122208905
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -225,19 +238,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65, y: 0.65}
   m_EdgeRadius: 0
---- !u!114 &-4310095204895078321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4073401575981382054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 786496f0c11ef0f4ba1983db5fd09599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentAngle: 0
 --- !u!1 &4680713343856989581
 GameObject:
   m_ObjectHideFlags: 0

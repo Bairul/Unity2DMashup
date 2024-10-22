@@ -6,25 +6,16 @@ public class GameWorld : MonoBehaviour
     // Singleton design
     public static GameWorld Instance { get; private set; }
 
-    [SerializeField]
-    private PlayerController playerController;
+    public Transform playerTransform;
 
-    [Range(0,1)]
-    [SerializeField]
-    private float elementalDamageBonus;
+    [Range(0,1)] [SerializeField] private float elementalDamageBonus;
 
-    [Range(0,1)]
-    [SerializeField]
-    private float elementalDamageResist;
+    [Range(0,1)] [SerializeField] private float elementalDamageResist;
 
     private GameObject nearestEnemy;
     private float nearestEnemyDistanceSq;
 
     private Dictionary<string, float> elementalDamageTable;
-
-    // Getters
-    public Transform GetPlayerTransform {get => playerController.gameObject.transform; }
-    public PlayerController GetPlayerController {get => playerController; }
 
     private void Awake()
     {
@@ -77,7 +68,7 @@ public class GameWorld : MonoBehaviour
     public void UpdateNearestEnemy(GameObject enemy)
     {
         Vector3 enemyPos = enemy.transform.position;
-        Vector3 distance = GetPlayerTransform.position - enemyPos;
+        Vector3 distance = playerTransform.position - enemyPos;
         float distanceSq = distance.sqrMagnitude;
 
         if (distanceSq < nearestEnemyDistanceSq)

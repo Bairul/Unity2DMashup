@@ -161,7 +161,7 @@ public class WaveManager : MonoBehaviour
         int totalWeight = 0;
         foreach (WeightedObject enemySpawn in wave.enemySpawns)
         {
-            totalWeight += enemySpawn.weight;
+            totalWeight += (int) enemySpawn.weight;
         }
 
         // Pick a random number between 0 and totalWeight - 1
@@ -171,7 +171,7 @@ public class WaveManager : MonoBehaviour
         // Select the enemy based on the random weight
         foreach (WeightedObject enemySpawn in wave.enemySpawns)
         {
-            cumulativeWeight += enemySpawn.weight;
+            cumulativeWeight += (int) enemySpawn.weight;
             if (randomWeight < cumulativeWeight)
             {
                 return enemySpawn.prefab;

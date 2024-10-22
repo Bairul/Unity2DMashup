@@ -3,8 +3,10 @@ using UnityEngine;
 public class EnemyAnimate : MonoBehaviour
 {
     private Animator animator;
+
     [HideInInspector]
     public int horizontal;
+    
     [HideInInspector]
     public bool attack;
 

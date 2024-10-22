@@ -1,21 +1,23 @@
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerInventoryManager))]
 public class PlayerStats : GenericStats
 {
     private CharacterScriptableObject baseStats;
     public CharacterScriptableObject BaseStats {get => baseStats;}
 
+    private PlayerInventoryManager playerInventory;
+    [SerializeField] private PlayerCollector playerMagnet;
+
     // current stats
     [HideInInspector] public float currentMagnetRange;
     [HideInInspector] public float currentCritRate;
     [HideInInspector] public float currentCritDmg;
-    [SerializeField] private PlayerCollector playerMagnet;
-    [SerializeField] private PlayerInventoryManager playerInventory;
 
     // Experience
-    public int currentExperience;
-    public int currentExperienceCap;
-    public int currentLevel = 1;
+    private int currentExperience;
+    private int currentExperienceCap;
+    private int currentLevel = 1;
     private int currentRangeIndex = 0;
 
     protected override void Awake()
@@ -26,9 +28,7 @@ public class PlayerStats : GenericStats
         currentCritRate = baseStats.CritRate;
         currentCritDmg = baseStats.CritDamage;
 
-        playerInventory.SetPlayerStats(this);
-        playerInventory.ObtainStarterSkill(baseStats.StarterSkill);
-        playerInventory.ObtainDashSkill(baseStats.DashSkill);
+        playerInventory = GetComponent<PlayerInventoryManager>();
     }
 
     void Start()
@@ -47,8 +47,6 @@ public class PlayerStats : GenericStats
         currentLevel++;
         currentExperience -= currentExperienceCap;
         UpdateExperienceCap();
-
-        playerInventory.ObtainRandomSkill(baseStats.SkillPool);
     }
 
     public void IncreaseExperience(int amount)

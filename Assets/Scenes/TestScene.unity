@@ -122,7 +122,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &6767000
+--- !u!1 &355729908
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,46 +130,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6767001}
-  - component: {fileID: 6767002}
+  - component: {fileID: 355729910}
+  - component: {fileID: 355729909}
   m_Layer: 0
-  m_Name: Inventory
+  m_Name: SkillPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6767001
+--- !u!114 &355729909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355729908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a758181bd656e34b9e1e09c326c0ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allElementalSkills:
+  - {fileID: 8791517268364318938, guid: bc35cd81ba9e79a4586d58b866dfd68e, type: 3}
+  - {fileID: 3695723596439067765, guid: 85db4603a9bfccc4093d66f082e6da19, type: 3}
+  - {fileID: 232534377473647592, guid: 3aec80629a280584791f3e188a34f111, type: 3}
+  allAttributeSkills: []
+  availableSkills: []
+--- !u!4 &355729910
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6767000}
+  m_GameObject: {fileID: 355729908}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9167163988767412023}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6767002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6767000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0f94b9d9e067e442a052e9e88a8a1d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSkillSlots: 5
-  attackSlots: []
-  starterSlot: {fileID: 0}
-  dashSlot: {fileID: 0}
 --- !u!1001 &381585025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -511,7 +513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &970277416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,7 +547,7 @@ MonoBehaviour:
     totalEnemiesToSpawn: 15
   restrictedTilemap: {fileID: 2033774089}
   mainCamera: {fileID: 519420031}
-  spawnOutsideDistance: 5
+  spawnOutsideDistance: 3
 --- !u!4 &970277417
 Transform:
   m_ObjectHideFlags: 0
@@ -689,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95bf363de2b6714cae25a73e330dd98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 9167163988767412026}
+  playerTransform: {fileID: 9167163988767412023}
   elementalDamageBonus: 0.25
   elementalDamageResist: 0.1
 --- !u!4 &1131129000
@@ -1018,6 +1020,7 @@ GameObject:
   - component: {fileID: 9167163988767412023}
   - component: {fileID: 9167163988767412026}
   - component: {fileID: 9167163988767412025}
+  - component: {fileID: 9167163988767412027}
   - component: {fileID: 9167163988767412024}
   m_Layer: 0
   m_Name: Player
@@ -1253,7 +1256,6 @@ Transform:
   - {fileID: 4634758134237291466}
   - {fileID: 4996774528253672514}
   - {fileID: 1521344578}
-  - {fileID: 6767001}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &9167163988767412024
@@ -1302,14 +1304,10 @@ MonoBehaviour:
   currentMovementSpeed: 0
   currentDamage: 0
   currentHealth: 0
+  playerMagnet: {fileID: 1521344580}
   currentMagnetRange: 0
   currentCritRate: 0
   currentCritDmg: 0
-  playerMagnet: {fileID: 1521344580}
-  playerInventory: {fileID: 6767002}
-  currentExperience: 0
-  currentExperienceCap: 0
-  currentLevel: 1
 --- !u!114 &9167163988767412026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,6 +1325,24 @@ MonoBehaviour:
   playerFeetbox: {fileID: 4634758134237291466}
   mouseIndicator: {fileID: 5695903795164071931}
   canMove: 0
+--- !u!114 &9167163988767412027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674407145447989593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f94b9d9e067e442a052e9e88a8a1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillPool: {fileID: 355729909}
+  maxSkillSlots: 5
+  attackSlots: []
+  attributeSlots: []
+  starterSlot: {fileID: 0}
+  dashSlot: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1336,3 +1352,4 @@ SceneRoots:
   - {fileID: 1065843310}
   - {fileID: 970277417}
   - {fileID: 1131129000}
+  - {fileID: 355729910}

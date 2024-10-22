@@ -8,18 +8,17 @@ using UnityEngine;
 
 public abstract class AttackController : MonoBehaviour
 {
-    private PlayerStats playerStats;
+    protected PlayerStats playerStats;
 
     protected AttackStats attackStats;
-
-    public void SetPlayerStats(PlayerStats stats)
-    {
-        playerStats = stats;
-    }
+    protected PlayerController playerController;
 
     protected virtual void Awake()
     {
         attackStats = GetComponent<AttackStats>();
+        
+        playerStats = GetComponentInParent<PlayerStats>();
+        playerController = GetComponentInParent<PlayerController>();
     }
 
     // updates after all updates
@@ -44,6 +43,11 @@ public abstract class AttackController : MonoBehaviour
         }
 
         return attackData;
+    }
+
+    public ElementalType PreGetElementalType()
+    {
+        return GetComponent<AttackStats>().BaseStats.Element;
     }
 
     protected abstract void LaunchAttack();

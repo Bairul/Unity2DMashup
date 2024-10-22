@@ -11,27 +11,23 @@ public class DashAtMouseBehavior : DashBehavior
     private float dashDuration;
 
     private new ParticleSystem particleSystem;
+    private PlayerController playerController;
     private MouseIndicator mouseIndicator;
-    private Rigidbody2D rgbd2d;
 
     protected override void Awake()
     {
         base.Awake();
         particleSystem = GetComponentInChildren<ParticleSystem>();
-    }
-
-    void Start()
-    {
-        mouseIndicator = GameWorld.Instance.GetPlayerController.PlayerMouseIndicator;
-        rgbd2d = GameWorld.Instance.GetPlayerController.PlayerRigidBody;
+        playerController = GetComponentInParent<PlayerController>();
+        mouseIndicator = playerController.PlayerMouseIndicator;
     }
 
     public override IEnumerator Dash()
     {
-        GameWorld.Instance.GetPlayerController.canMove = false;
+        playerController.canMove = false;
 
         Vector3 toMouse = new(mouseIndicator.mouseDir.x, mouseIndicator.mouseDir.y);
-        rgbd2d.velocity = dashSpeedMultiplier * GameWorld.Instance.GetPlayerController.PlayerMovementSpeed * toMouse.normalized;
+        playerController.PlayerRigidBody.velocity = dashSpeedMultiplier * playerController.PlayerMovementSpeed * toMouse.normalized;
 
         // lastMvt.x = animate.mouseRight ? 1.0f : -1.0f;
         // lastMvt.y = 0;
@@ -40,7 +36,7 @@ public class DashAtMouseBehavior : DashBehavior
         particleSystem.Play();
 
         yield return new WaitForSeconds(dashDuration);
-        GameWorld.Instance.GetPlayerController.canMove = true;
+        playerController.canMove = true;
         particleSystem.Stop();
 
         yield return new WaitForSeconds(dashCooldown);

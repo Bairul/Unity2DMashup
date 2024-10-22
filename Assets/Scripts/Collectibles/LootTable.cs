@@ -36,7 +36,7 @@ public class LootTable : MonoBehaviour
         int totalWeight = 0;
         foreach (WeightedObject loot in lootItems)
         {
-            totalWeight += loot.weight;
+            totalWeight += (int) loot.weight;
         }
 
         // Generate a random number from 0 to totalWeight - 1
@@ -46,7 +46,7 @@ public class LootTable : MonoBehaviour
         // Determine which loot to drop based on random value
         foreach (WeightedObject loot in lootItems)
         {
-            cumulativeWeight += loot.weight;
+            cumulativeWeight += (int) loot.weight;
             if (randomValue < cumulativeWeight)
             {
                 return loot.prefab; // Return the loot item or null if it's "empty"

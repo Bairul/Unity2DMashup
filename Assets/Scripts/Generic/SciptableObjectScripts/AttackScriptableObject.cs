@@ -1,19 +1,4 @@
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
-
-public enum ElementalType
-{
-    Arcane,
-    Fire,
-    Water,
-    Earth,
-    Wind
-}
-
-public enum SkillType{
-    Auto,
-    Active
-}
 
 [CreateAssetMenu(fileName ="AttackScriptableObject", menuName ="ScriptableObjects/Attack")]
 public class AttackScriptableObject : ScriptableObject
@@ -23,8 +8,8 @@ public class AttackScriptableObject : ScriptableObject
     public ElementalType Element { get => element; private set => element = value; }
 
     [SerializeField]
-    private SkillType skillType;
-    public SkillType SkillType { get => skillType; }
+    private SkillAction skillAction;
+    public SkillAction SkillAction { get => skillAction; }
 
     [SerializeField]
     private GameObject prefab;
