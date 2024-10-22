@@ -47,6 +47,7 @@ public class PlayerStats : GenericStats
         currentLevel++;
         currentExperience -= currentExperienceCap;
         UpdateExperienceCap();
+        playerInventory.ObtainRandomSkill();
     }
 
     public void IncreaseExperience(int amount)

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &232534377473647592
+--- !u!1 &8791517268364318938
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4503414255994605803}
-  - component: {fileID: 2033648506173315502}
-  - component: {fileID: 1050279741991966853}
+  - component: {fileID: 4384203524667159263}
+  - component: {fileID: 8739358051403607971}
+  - component: {fileID: 4072980063920502732}
   m_Layer: 0
-  m_Name: WindBlowController
+  m_Name: FireBallSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4503414255994605803
+--- !u!4 &4384203524667159263
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232534377473647592}
+  m_GameObject: {fileID: 8791517268364318938}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,32 +33,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2033648506173315502
+--- !u!114 &8739358051403607971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232534377473647592}
+  m_GameObject: {fileID: 8791517268364318938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5429c54916da5ad4c896acc754900768, type: 3}
+  m_Script: {fileID: 11500000, guid: d720645d889e26644b444f3800716c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
---- !u!114 &1050279741991966853
+--- !u!114 &4072980063920502732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232534377473647592}
+  m_GameObject: {fileID: 8791517268364318938}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08c2528abc86cc940a81e6c93f5ce2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats: {fileID: 11400000, guid: 7399def87cb8fa248bd7d6a8a83c6465, type: 2}
+  baseStats: {fileID: 11400000, guid: eccb999918012704d81427f279496bbe, type: 2}
   currentSpeed: 0
   currentPierce: 0
   currentDamage: 0

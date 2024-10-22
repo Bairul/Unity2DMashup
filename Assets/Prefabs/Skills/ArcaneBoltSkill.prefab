@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3695723596439067765
+--- !u!1 &6561270386445830677
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,57 +8,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7858573286886811460}
-  - component: {fileID: 7727989403349305420}
-  - component: {fileID: 3088109341342613870}
+  - component: {fileID: 2951044031683500753}
+  - component: {fileID: 8118567631054416477}
+  - component: {fileID: 2031569238912060080}
   m_Layer: 0
-  m_Name: WaterBallController
+  m_Name: ArcaneBoltSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7858573286886811460
+--- !u!4 &2951044031683500753
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695723596439067765}
+  m_GameObject: {fileID: 6561270386445830677}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7727989403349305420
+--- !u!114 &8118567631054416477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695723596439067765}
+  m_GameObject: {fileID: 6561270386445830677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c8581e50f98b4459eb47bbdb2107ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 00208f67c1f3f8046854f837b6061c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
---- !u!114 &3088109341342613870
+--- !u!114 &2031569238912060080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695723596439067765}
+  m_GameObject: {fileID: 6561270386445830677}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08c2528abc86cc940a81e6c93f5ce2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats: {fileID: 11400000, guid: 52dcdff707e9cf24686e03286b5c96cc, type: 2}
+  baseStats: {fileID: 11400000, guid: eee090bc86679814f91daab5dde91c03, type: 2}
   currentSpeed: 0
   currentPierce: 0
   currentDamage: 0
