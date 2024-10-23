@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -22,10 +21,8 @@ public class WaveManager : MonoBehaviour
     private Vector3 maxBounds;       // Top-right corner of the tilemap in world coordinates
     private const int MAX_RETRIES = 12;
 
-    private List<GameObject> enemies;
     void Awake()
     {
-        enemies = new List<GameObject>();
         isSpawning = true;
         // Error checking
         CheckValidWaves();
@@ -68,6 +65,7 @@ public class WaveManager : MonoBehaviour
                     isSpawning = false;
                 }
             }
+            WeightedObject.NormalizeWeights(wave.enemySpawns);
         }
     }
 
@@ -110,14 +108,14 @@ public class WaveManager : MonoBehaviour
                 {
                     Debug.LogWarning("Failed to find a valid spawn point outside restricted tiles given " + MAX_RETRIES + " tries. Skipping this spawn");
                 }
-                else
-                {
+                else{
                     // Spawn an enemy based on weighted probabilities
-                    GameObject enemyToSpawn = GetRandomEnemyBasedOnWeight(currentWave);
-                    Instantiate(enemyToSpawn, spawnPoint, Quaternion.identity);
-                    currentWave.totalEnemiesToSpawn--;
-
-                    enemies.Add(enemyToSpawn);
+                    WeightedObject spawn = WeightedObject.GetRandomWeightedObject(currentWave.enemySpawns);
+                    if (spawn != null && spawn.prefab != null)
+                    {
+                        Instantiate(spawn.prefab, spawnPoint, Quaternion.identity);
+                        currentWave.totalEnemiesToSpawn--;
+                    }
                 }
             }
 
@@ -153,33 +151,6 @@ public class WaveManager : MonoBehaviour
                                 Random.Range(cameraCenter.y - cameraHeight / 2, cameraCenter.y + cameraHeight / 2)),
         };
         return spawnPosition;
-    }
-
-    GameObject GetRandomEnemyBasedOnWeight(EnemyWave wave)
-    {
-        // Sum up the total weights
-        int totalWeight = 0;
-        foreach (WeightedObject enemySpawn in wave.enemySpawns)
-        {
-            totalWeight += (int) enemySpawn.weight;
-        }
-
-        // Pick a random number between 0 and totalWeight - 1
-        int randomWeight = Random.Range(0, totalWeight);
-        int cumulativeWeight = 0;
-
-        // Select the enemy based on the random weight
-        foreach (WeightedObject enemySpawn in wave.enemySpawns)
-        {
-            cumulativeWeight += (int) enemySpawn.weight;
-            if (randomWeight < cumulativeWeight)
-            {
-                return enemySpawn.prefab;
-            }
-        }
-
-        Debug.LogError("Bad spawn weight");
-        return wave.enemySpawns[0].prefab; // Default fallback, this line should never be reached
     }
 
     bool IsOnRestrictedTile(Vector2 position)

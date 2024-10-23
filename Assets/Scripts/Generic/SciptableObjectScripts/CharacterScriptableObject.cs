@@ -47,8 +47,8 @@ public class CharacterScriptableObject : GenericScriptableObject
 
     [Header("Skills")]
     [SerializeField]
-    private List<ElementalType> elementalAffinities;
-    public List<ElementalType> ElementalAffinities { get => elementalAffinities; }
+    private ElementalType[] elementalAffinities;
+    public ElementalType[] ElementalAffinities { get => elementalAffinities; }
 
     [SerializeField]
     private GameObject starterSkill;

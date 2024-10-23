@@ -6,14 +6,14 @@ public class SkillPool : MonoBehaviour
 {
     [Header("Put every skill objects here")]
     [SerializeField]
-    private List<GameObject> allElementalSkills;
+    private GameObject[] allElementalSkills;
 
     [SerializeField]
-    private List<GameObject> allAttributeSkills;
+    private GameObject[] allAttributeSkills;
 
     public List<WeightedObject> availableSkills;
 
-    public void InitAvailableSkills(List<ElementalType> elementalAffinities)
+    public void InitAvailableSkills(ElementalType[] elementalAffinities)
     {
         availableSkills = new List<WeightedObject>();
 
@@ -37,23 +37,7 @@ public class SkillPool : MonoBehaviour
 
         // add bloodline here
 
-        NormalizeWeights(availableSkills);
-    }
-
-    void NormalizeWeights(List<WeightedObject> list)
-    {
-        if (list == null) return;
-
-        float totalWeight = 0f;
-        foreach (WeightedObject weightedObject in list)
-        {
-            totalWeight += weightedObject.weight;
-        }
-
-        foreach (WeightedObject weightedObject in list)
-        {
-            weightedObject.weight /= totalWeight;
-        }
+        WeightedObject.NormalizeWeights(availableSkills);
     }
 
     List<WeightedObject> CopyOfAvailableSkills()
@@ -66,35 +50,6 @@ public class SkillPool : MonoBehaviour
         return copy;
     }
 
-    GameObject GetRandomSkillBasedOnWeight(List<WeightedObject> list)
-    {
-        if (list.Count <= 0) return null;
-
-        float totalWeight = 0;
-        foreach (WeightedObject obj in list)
-        {
-            totalWeight += obj.weight;
-        }
-
-        float randomValue = Random.Range(0, totalWeight);
-        float cumulativeWeight = 0;
-
-        foreach (WeightedObject obj in list)
-        {
-            cumulativeWeight += obj.weight;
-            if (randomValue < cumulativeWeight)
-            {
-                list.Remove(obj);
-                NormalizeWeights(list);
-                Debug.Log(obj.prefab.name);
-                return obj.prefab;
-            }
-        }
-
-        Debug.LogError("Bad weight");
-        return null; // Fallback, this line should never be reached
-    }
-
     public List<GameObject> GetSkills(int length)
     {
         List<GameObject> skills = new();
@@ -102,7 +57,16 @@ public class SkillPool : MonoBehaviour
 
         for (int i = 0; i < length; i++)
         {
-            skills.Add(GetRandomSkillBasedOnWeight(copy));
+            WeightedObject obj = WeightedObject.GetRandomWeightedObject(copy);
+
+            if (obj != null && obj.prefab != null)
+            {
+                copy.Remove(obj);
+                WeightedObject.NormalizeWeights(copy);
+                Debug.Log(obj.prefab.name);
+
+                skills.Add(obj.prefab);
+            }
         }
 
         return skills;
@@ -120,7 +84,7 @@ public class SkillPool : MonoBehaviour
             }
         }
 
-        NormalizeWeights(availableSkills);
+        WeightedObject.NormalizeWeights(availableSkills);
     }
 
     public void AdjustWeightOfSkill(string name, float percentageChange)
@@ -133,7 +97,7 @@ public class SkillPool : MonoBehaviour
             }
         }
 
-        NormalizeWeights(availableSkills);
+        WeightedObject.NormalizeWeights(availableSkills);
     }
 
     public void RemoveSkillFromPool(string name)
@@ -147,6 +111,6 @@ public class SkillPool : MonoBehaviour
             }
         }
 
-        NormalizeWeights(availableSkills);
+        WeightedObject.NormalizeWeights(availableSkills);
     }
 }
