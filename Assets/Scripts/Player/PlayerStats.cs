@@ -10,20 +10,22 @@ public class PlayerStats : GenericStats
     [SerializeField] private PlayerCollector playerMagnet;
 
     // current stats
+    [HideInInspector] public float currentMaxHealth;
     [HideInInspector] public float currentMagnetRange;
     [HideInInspector] public float currentCritRate;
     [HideInInspector] public float currentCritDmg;
 
     // Experience
-    private int currentExperience;
+    public int currentExperience;
     private int currentExperienceCap;
-    private int currentLevel = 1;
+    public int currentLevel = 1;
     private int currentRangeIndex = 0;
 
     protected override void Awake()
     {
         base.Awake();
         baseStats = (CharacterScriptableObject) genericStats;
+        currentMaxHealth = genericStats.MaxHealth;
         currentMagnetRange = baseStats.MagnetRange;
         currentCritRate = baseStats.CritRate;
         currentCritDmg = baseStats.CritDamage;
@@ -47,7 +49,7 @@ public class PlayerStats : GenericStats
         currentLevel++;
         currentExperience -= currentExperienceCap;
         UpdateExperienceCap();
-        playerInventory.ObtainRandomSkill();
+        playerInventory.ObtainRandomSkills();
     }
 
     public void IncreaseExperience(int amount)
@@ -61,26 +63,28 @@ public class PlayerStats : GenericStats
         }
     }
 
-    // terrible code lol
     private void UpdateExperienceCap()
     {
-        if (baseStats.ExperienceCapMode == ExperienceCapMode.FixedByLevelRange)
-        {
-            if (currentRangeIndex >= baseStats.LevelRanges.Count) return;
+        // terrible code lol
+        if (currentRangeIndex >= baseStats.LevelRanges.Count) return;
             
-            if (currentLevel > baseStats.LevelRanges[currentRangeIndex].maxLevel)
-            {
-                currentRangeIndex++;
-            }
-
-            if (currentRangeIndex >= baseStats.LevelRanges.Count) return;
-
-            currentExperienceCap = baseStats.LevelRanges[currentRangeIndex].experienceCap;
-        }
-        else
+        if (currentLevel > baseStats.LevelRanges[currentRangeIndex].maxLevel)
         {
-            currentExperienceCap = (int) (Mathf.Pow(currentLevel, baseStats.XpFunctionExponent) * baseStats.XpFunctionCoefficient + baseStats.XpFunctionConstant);
+            currentRangeIndex++;
         }
+
+        if (currentRangeIndex >= baseStats.LevelRanges.Count) return;
+
+        currentExperienceCap = baseStats.LevelRanges[currentRangeIndex].experienceCap;
+
+        // if (baseStats.ExperienceCapMode == ExperienceCapMode.FixedByLevelRange)
+        // {
+            
+        // }
+        // else
+        // {
+        //     currentExperienceCap = (int) (Mathf.Pow(currentLevel, baseStats.XpFunctionExponent) * baseStats.XpFunctionCoefficient + baseStats.XpFunctionConstant);
+        // }
     }
 
     protected override void Kill() 

@@ -27,20 +27,22 @@ public class PlayerInventoryManager : MonoBehaviour
         ObtainDashSkill(playerStats.BaseStats.DashSkill);
     }
 
-    public void ObtainRandomSkill()
+    public void ObtainRandomSkills()
     {
+        // temporary code for testing without UI
         if (attackSlotIndex >= maxSkillSlots)
         {
             Debug.LogWarning("Inventory is full, cannot add skill");
             return;
         }
 
+        // List of skills randomly selected from the pool to offer to player
         List<GameObject> prefabs = skillPool.GetSkills(1);
 
-        if (prefabs.Count > 0)
-        {
-            attackSlots[attackSlotIndex++] = Instantiate(prefabs[0], transform);
-        }
+        // player has chosen skill 1
+        GameObject chosenSkill = prefabs[0];
+
+        ApplyChosenSkill(chosenSkill);
     }
 
     void ObtainStarterSkill(GameObject startSkill)
@@ -57,5 +59,14 @@ public class PlayerInventoryManager : MonoBehaviour
         {
             dashSlot = Instantiate(dashSkill, transform);
         }
+    }
+
+    public void ApplyChosenSkill(GameObject chosenSkill)
+    {
+        // TODO: check if the skill is already in inventory, if it is replace it else add it as a new slot if not full
+        
+
+        attackSlots[attackSlotIndex++] = Instantiate(chosenSkill, transform);
+        skillPool.LevelUpSkillInPool(chosenSkill.name);
     }
 }

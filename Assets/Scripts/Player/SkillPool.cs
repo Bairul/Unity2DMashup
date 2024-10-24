@@ -100,17 +100,17 @@ public class SkillPool : MonoBehaviour
         WeightedObject.NormalizeWeights(availableSkills);
     }
 
-    public void RemoveSkillFromPool(string name)
+    public void LevelUpSkillInPool(string name)
     {
         foreach (WeightedObject weightedObject in availableSkills)
         {
             if (weightedObject.prefab.name.Equals(name))
             {
                 availableSkills.Remove(weightedObject);
+                // TODO: Add next level prefab to available skills while keeping the same weight
                 break;
             }
         }
-
-        WeightedObject.NormalizeWeights(availableSkills);
+        // don't have to normalize bc weight is the same
     }
 }

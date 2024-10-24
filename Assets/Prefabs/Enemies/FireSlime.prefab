@@ -72,6 +72,18 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5916632378158874248, guid: 03810c10b34c73a4c9cf751f16f0bb46, type: 3}
+      propertyPath: lootItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916632378158874248, guid: 03810c10b34c73a4c9cf751f16f0bb46, type: 3}
+      propertyPath: lootItems.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 5434819762298000534, guid: 5f91c03332195b14ea923f7be7ae719a, type: 3}
+    - target: {fileID: 5916632378158874248, guid: 03810c10b34c73a4c9cf751f16f0bb46, type: 3}
+      propertyPath: lootItems.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6344520403641977030, guid: 03810c10b34c73a4c9cf751f16f0bb46, type: 3}
       propertyPath: m_Size.x
       value: 0.88

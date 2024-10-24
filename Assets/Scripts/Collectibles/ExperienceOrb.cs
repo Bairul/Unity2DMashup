@@ -1,4 +1,3 @@
-
 public class ExperienceOrb : Collectible
 {
     public int experienceGranted;

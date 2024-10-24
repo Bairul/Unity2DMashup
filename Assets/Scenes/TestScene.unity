@@ -155,7 +155,10 @@ MonoBehaviour:
   - {fileID: 8791517268364318938, guid: bc35cd81ba9e79a4586d58b866dfd68e, type: 3}
   - {fileID: 3695723596439067765, guid: 85db4603a9bfccc4093d66f082e6da19, type: 3}
   - {fileID: 232534377473647592, guid: 3aec80629a280584791f3e188a34f111, type: 3}
-  allAttributeSkills: []
+  allAttributeSkills:
+  - {fileID: 5124078548971613201, guid: 4862a703b16b978439d96c2f6d7f7a52, type: 3}
+  - {fileID: 2299344826270804202, guid: 988951cfc1d65ea4b940869daaaadd60, type: 3}
+  - {fileID: 3498705318805703856, guid: 2ab32d50e8b5179449c210ad91ba8ea0, type: 3}
   availableSkills: []
 --- !u!4 &355729910
 Transform:

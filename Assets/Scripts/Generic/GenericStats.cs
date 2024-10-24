@@ -12,8 +12,7 @@ public abstract class GenericStats : MonoBehaviour
     // current stats
     [HideInInspector] public float currentMovementSpeed;
     [HideInInspector] public float currentDamage;
-
-    public float currentHealth;
+    [HideInInspector] public float currentHealth;
 
     protected virtual void Awake()
     {
