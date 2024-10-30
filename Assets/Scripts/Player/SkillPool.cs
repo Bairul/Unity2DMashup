@@ -13,10 +13,23 @@ public class SkillPool : MonoBehaviour
 
     public List<WeightedObject> availableSkills;
 
+    /// <summary>
+    /// Character’s elemental affinity defines the skill pool
+    /// <br></br>
+    /// Ex. If a character has Fire and Water affinity, then their Skill pool will consist of Fire and Water type skills.
+    /// <br></br>
+    /// Character’s bloodline skills (basic, unique) are also added to the pool at the start.
+    /// <br></br>
+    /// Character’s passive can add or remove certain skills in the pool at the start.
+    /// <br></br>
+    /// Includes all attribute/supporting skills (%Atk, %Hp, %Mvt, etc) 
+    /// </summary>
+    /// <param name="elementalAffinities"></param>
     public void InitAvailableSkills(ElementalType[] elementalAffinities)
     {
         availableSkills = new List<WeightedObject>();
 
+        // add elements
         foreach (GameObject skillObject in allElementalSkills)
         {
             AttackController skill = skillObject.GetComponent<AttackController>();
@@ -30,6 +43,7 @@ public class SkillPool : MonoBehaviour
             }
         }
 
+        // add attribues
         foreach (GameObject skillObject in allAttributeSkills)
         {
             availableSkills.Add(new WeightedObject(skillObject, 1));
@@ -50,6 +64,15 @@ public class SkillPool : MonoBehaviour
         return copy;
     }
 
+    /// <summary>
+    /// Player can choose from 3 or 4 skills after leveling
+    /// <br></br>
+    /// Each skill must be unique
+    /// <br></br>
+    /// Each skill is chosen based on weights
+    /// </summary>
+    /// <param name="length"></param>
+    /// <returns></returns>
     public List<GameObject> GetSkills(int length)
     {
         List<GameObject> skills = new();
@@ -72,6 +95,17 @@ public class SkillPool : MonoBehaviour
         return skills;
     }
 
+    /// <summary>
+    /// Character’s weapon affects the weights of the skills in the pool
+    /// <br></br>
+    /// Ex. Increase/decrease the chance of getting a Fire type skill by 25%
+    /// <br></br>
+    /// Ex. Increase/decrease the chance of getting Fireball skill by 50%
+    /// <br></br>
+    /// Weights may be affected during runtime from artifacts or debuffsss 
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="percentageChange"></param>
     public void AdjustWeightOfType(ElementalType type, float percentageChange)
     {
         foreach (WeightedObject weightedObject in availableSkills)
@@ -102,15 +136,14 @@ public class SkillPool : MonoBehaviour
 
     public void LevelUpSkillInPool(string name)
     {
-        foreach (WeightedObject weightedObject in availableSkills)
-        {
-            if (weightedObject.prefab.name.Equals(name))
-            {
-                availableSkills.Remove(weightedObject);
-                // TODO: Add next level prefab to available skills while keeping the same weight
-                break;
-            }
-        }
-        // don't have to normalize bc weight is the same
+        // foreach (WeightedObject weightedObject in availableSkills)
+        // {
+        //     if (weightedObject.prefab.name.Equals(name))
+        //     {
+        //         // availableSkills.Remove(weightedObject);
+        //         // TODO: Add next level prefab to available skills while keeping the same weight
+        //         break;
+        //     }
+        // }
     }
 }

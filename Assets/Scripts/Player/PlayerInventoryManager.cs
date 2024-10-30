@@ -63,10 +63,45 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public void ApplyChosenSkill(GameObject chosenSkill)
     {
-        // TODO: check if the skill is already in inventory, if it is replace it else add it as a new slot if not full
-        
+        // TODO: check for the skill type
+        SkillType skillData = chosenSkill.GetComponent<SkillType>();
 
-        attackSlots[attackSlotIndex++] = Instantiate(chosenSkill, transform);
-        skillPool.LevelUpSkillInPool(chosenSkill.name);
+        // TODO: check if the skill is already in inventory, 
+        //       if it is replace it with its upgrade if not at max, 
+        //       else add it as a new slot if slots not full
+
+        bool foundSkill = false;
+        if (skillData.IsTypeEquals(SkillOfType.Attribue))
+        {
+            for (int i = 0; i < attributeSlotIndex && !foundSkill; i++)
+            {
+                SkillType skillData2 = attributeSlots[i].GetComponent<SkillType>();
+
+                if (skillData.IsSameName(skillData2))
+                {
+                    foundSkill = true;
+                    // level up existing skill by replacing it with the new skill
+                }
+            }
+
+            if (!foundSkill) attributeSlots[attributeSlotIndex++] = Instantiate(chosenSkill, transform);
+        }
+        else
+        {
+            for (int i = 0; i < attackSlotIndex && !foundSkill; i++)
+            {
+                SkillType skillData2 = attackSlots[i].GetComponent<SkillType>();
+
+                if (skillData.IsSameName(skillData2))
+                {
+                    foundSkill = true;
+                    // level up existing skill by replacing it with the new skill
+                }
+            }
+
+            if (!foundSkill) attackSlots[attackSlotIndex++] = Instantiate(chosenSkill, transform);
+        }
+
+        skillPool.LevelUpSkillInPool(skillData.SkillName);
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7858573286886811460}
   - component: {fileID: 7727989403349305420}
   - component: {fileID: 3088109341342613870}
+  - component: {fileID: 4634257330125631954}
   m_Layer: 0
   m_Name: WaterBallSkill
   m_TagString: Untagged
@@ -45,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c8581e50f98b4459eb47bbdb2107ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
 --- !u!114 &3088109341342613870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,3 +67,17 @@ MonoBehaviour:
   currentLifespan: 0
   currentCount: 0
   currentAttackMultiplier: 0.5
+--- !u!114 &4634257330125631954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3695723596439067765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6468f2c5bc02dab40b5408f566f0ac4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  skillName: WaterBallSkill

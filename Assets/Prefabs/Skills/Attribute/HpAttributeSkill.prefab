@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7663636119404338835}
   - component: {fileID: 1070755994358311455}
+  - component: {fileID: 7490330953066249692}
   m_Layer: 0
   m_Name: HpAttributeSkill
   m_TagString: Untagged
@@ -45,3 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributeData: {fileID: 11400000, guid: a060673d79cecb54cbcd311371008705, type: 2}
+--- !u!114 &7490330953066249692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299344826270804202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6468f2c5bc02dab40b5408f566f0ac4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  skillName: HpAttributeSkill

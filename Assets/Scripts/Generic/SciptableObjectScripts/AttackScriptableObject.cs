@@ -8,10 +8,6 @@ public class AttackScriptableObject : ScriptableObject
     public ElementalType Element { get => element; private set => element = value; }
 
     [SerializeField]
-    private SkillAction skillAction;
-    public SkillAction SkillAction { get => skillAction; }
-
-    [SerializeField]
     private GameObject prefab;
     public GameObject Prefab { get => prefab; private set => prefab = value; }
 

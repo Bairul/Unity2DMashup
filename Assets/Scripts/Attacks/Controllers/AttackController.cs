@@ -4,19 +4,17 @@ using UnityEngine;
 /// Base script for all attack controllers
 /// </summary>
 
-[RequireComponent(typeof(AttackStats))]
+[RequireComponent(typeof(AttackStats), typeof(SkillType))]
 
 public abstract class AttackController : MonoBehaviour
 {
     protected PlayerStats playerStats;
-
     protected AttackStats attackStats;
     protected PlayerController playerController;
 
     protected virtual void Awake()
     {
         attackStats = GetComponent<AttackStats>();
-        
         playerStats = GetComponentInParent<PlayerStats>();
         playerController = GetComponentInParent<PlayerController>();
     }

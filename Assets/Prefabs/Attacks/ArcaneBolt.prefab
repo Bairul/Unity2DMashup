@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 6527044343014587269}
   - component: {fileID: 7879321059239472849}
   m_Layer: 3
-  m_Name: ArcaneBoltSkill
+  m_Name: ArcaneBolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

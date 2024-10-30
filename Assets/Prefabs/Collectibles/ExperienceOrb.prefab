@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pullSpeed: 4
-  experienceGranted: 4
+  experienceGranted: 8
 --- !u!58 &7383830143088420223
 CircleCollider2D:
   m_ObjectHideFlags: 0

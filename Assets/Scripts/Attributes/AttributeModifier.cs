@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(SkillType))]
 public abstract class AttributeModifier : MonoBehaviour
 {
     [SerializeField]
