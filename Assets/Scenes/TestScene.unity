@@ -1301,11 +1301,11 @@ MonoBehaviour:
   immunityFlash: {fileID: 8860585392959568005}
   invincibilityTimer: 0
   isInvincible: 0
+  currentMaxHealth: 100
+  currentHealth: 0
   currentMovementSpeed: 0
   currentDamage: 0
-  currentHealth: 0
   playerMagnet: {fileID: 1521344580}
-  currentMaxHealth: 0
   currentMagnetRange: 0
   currentCritRate: 0
   currentCritDmg: 0
