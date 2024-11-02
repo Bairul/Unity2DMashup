@@ -10,14 +10,17 @@ public abstract class GenericStats : MonoBehaviour
     [HideInInspector] public bool isInvincible;
 
     // current stats
+    public float currentMaxHealth;
+    public float currentHealth;
     [HideInInspector] public float currentMovementSpeed;
     [HideInInspector] public float currentDamage;
-    [HideInInspector] public float currentHealth;
+    
 
     protected virtual void Awake()
     {
         currentMovementSpeed = genericStats.MovementSpeed;
         currentDamage = genericStats.Damage;
+        currentMaxHealth = genericStats.MaxHealth;
         currentHealth = genericStats.MaxHealth;
         invincibilityTimer = genericStats.IFrameDuration;
         isInvincible = false;

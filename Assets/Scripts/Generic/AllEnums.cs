@@ -7,13 +7,7 @@ public enum ElementalType
     Wind,
 }
 
-public enum SkillAction
-{
-    Auto,
-    Active
-}
-
-public enum SkillType
+public enum SkillOfType
 {
     Bloodline,
     Attribue,

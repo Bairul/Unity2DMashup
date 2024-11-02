@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4503414255994605803}
   - component: {fileID: 2033648506173315502}
   - component: {fileID: 1050279741991966853}
+  - component: {fileID: 3755532965409366738}
   m_Layer: 0
   m_Name: WindBlowSkill
   m_TagString: Untagged
@@ -45,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5429c54916da5ad4c896acc754900768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
 --- !u!114 &1050279741991966853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,3 +67,17 @@ MonoBehaviour:
   currentLifespan: 0
   currentCount: 0
   currentAttackMultiplier: 0.5
+--- !u!114 &3755532965409366738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232534377473647592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6468f2c5bc02dab40b5408f566f0ac4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  skillName: WindBlowSkill

@@ -7,6 +7,4 @@ public class AttributeScriptableObject : ScriptableObject
     [SerializeField]
     private float multiplier;
     public float Multiplier { get => multiplier; private set => multiplier = value; }
-
-
 }

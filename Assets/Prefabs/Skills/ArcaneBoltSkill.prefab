@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2951044031683500753}
   - component: {fileID: 8118567631054416477}
   - component: {fileID: 2031569238912060080}
+  - component: {fileID: 7643766863511517641}
   m_Layer: 0
   m_Name: ArcaneBoltSkill
   m_TagString: Untagged
@@ -66,3 +67,17 @@ MonoBehaviour:
   currentLifespan: 0
   currentCount: 0
   currentAttackMultiplier: 0.5
+--- !u!114 &7643766863511517641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6561270386445830677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6468f2c5bc02dab40b5408f566f0ac4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  skillName: ArcaneBoltSkill

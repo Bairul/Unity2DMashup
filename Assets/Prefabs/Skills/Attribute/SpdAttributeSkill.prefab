@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7703929720887416523}
   - component: {fileID: -7837883315400583736}
+  - component: {fileID: 4780835260403096353}
   m_Layer: 0
   m_Name: SpdAttributeSkill
   m_TagString: Untagged
@@ -45,3 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributeData: {fileID: 11400000, guid: 58ec1b826e426cc47bfa39d05b31ef3c, type: 2}
+--- !u!114 &4780835260403096353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498705318805703856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6468f2c5bc02dab40b5408f566f0ac4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  skillName: SpdAttributeSkill

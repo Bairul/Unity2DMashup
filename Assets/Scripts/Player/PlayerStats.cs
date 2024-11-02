@@ -4,13 +4,13 @@ using UnityEngine;
 public class PlayerStats : GenericStats
 {
     private CharacterScriptableObject baseStats;
-    public CharacterScriptableObject BaseStats {get => baseStats;}
+    public CharacterScriptableObject BaseStats { get => baseStats; }
 
     private PlayerInventoryManager playerInventory;
     [SerializeField] private PlayerCollector playerMagnet;
 
     // current stats
-    [HideInInspector] public float currentMaxHealth;
+    public HealthBar healthBar;
     [HideInInspector] public float currentMagnetRange;
     [HideInInspector] public float currentCritRate;
     [HideInInspector] public float currentCritDmg;
@@ -24,8 +24,10 @@ public class PlayerStats : GenericStats
     protected override void Awake()
     {
         base.Awake();
-        baseStats = (CharacterScriptableObject) genericStats;
-        currentMaxHealth = genericStats.MaxHealth;
+        baseStats = (CharacterScriptableObject)genericStats;
+        currentMaxHealth = baseStats.MaxHealth;
+        currentHealth = baseStats.MaxHealth;
+
         currentMagnetRange = baseStats.MagnetRange;
         currentCritRate = baseStats.CritRate;
         currentCritDmg = baseStats.CritDamage;
@@ -37,6 +39,8 @@ public class PlayerStats : GenericStats
     {
         UpdateExperienceCap();
         UpdateMagnetRange(currentMagnetRange);
+
+        healthBar.SetMaxHealth(currentMaxHealth);
     }
 
     public void UpdateMagnetRange(float radius)
@@ -67,7 +71,7 @@ public class PlayerStats : GenericStats
     {
         // terrible code lol
         if (currentRangeIndex >= baseStats.LevelRanges.Count) return;
-            
+
         if (currentLevel > baseStats.LevelRanges[currentRangeIndex].maxLevel)
         {
             currentRangeIndex++;
@@ -79,7 +83,7 @@ public class PlayerStats : GenericStats
 
         // if (baseStats.ExperienceCapMode == ExperienceCapMode.FixedByLevelRange)
         // {
-            
+
         // }
         // else
         // {
@@ -87,7 +91,13 @@ public class PlayerStats : GenericStats
         // }
     }
 
-    protected override void Kill() 
+    protected override void DamageTaken(float damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
+    
+    protected override void Kill()
     {
         Debug.Log("You Died");
     }
