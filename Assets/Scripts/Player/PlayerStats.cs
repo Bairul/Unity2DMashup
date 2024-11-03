@@ -43,6 +43,7 @@ public class PlayerStats : GenericStats
 
         healthBar.SetMaxHealth(currentMaxHealth);
         xpBar.SetMaxXP(currentExperienceCap);
+        xpBar.SetLevel(currentLevel);
     }
 
     public void UpdateMagnetRange(float radius)
@@ -55,6 +56,8 @@ public class PlayerStats : GenericStats
         currentLevel++;
         currentExperience -= currentExperienceCap;
         xpBar.SetXP(currentExperience);
+        xpBar.SetLevel(currentLevel);
+
         UpdateExperienceCap();
         playerInventory.ObtainRandomSkills();
     }
@@ -65,7 +68,7 @@ public class PlayerStats : GenericStats
 
         currentExperience += amount;
         xpBar.SetXP(currentExperience);
-        
+
         if (currentExperience >= currentExperienceCap)
         {
             LevelUp();
@@ -101,7 +104,7 @@ public class PlayerStats : GenericStats
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
-    
+
     protected override void Kill()
     {
         Debug.Log("You Died");
