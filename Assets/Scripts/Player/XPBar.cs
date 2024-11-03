@@ -9,6 +9,10 @@ public class XPBar : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI levelText;
 
+    public void SetLevel(float level) {
+        levelText.text = "Level: " + level;
+    }
+
     public void SetMaxXP(float xp)
     {
         slider.maxValue = xp;
