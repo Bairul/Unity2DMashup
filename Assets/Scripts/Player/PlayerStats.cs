@@ -16,6 +16,7 @@ public class PlayerStats : GenericStats
     [HideInInspector] public float currentCritDmg;
 
     // Experience
+    public XPBar xpBar;
     public int currentExperience;
     private int currentExperienceCap;
     public int currentLevel = 1;
@@ -41,6 +42,7 @@ public class PlayerStats : GenericStats
         UpdateMagnetRange(currentMagnetRange);
 
         healthBar.SetMaxHealth(currentMaxHealth);
+        xpBar.SetMaxXP(currentExperienceCap);
     }
 
     public void UpdateMagnetRange(float radius)
@@ -52,6 +54,7 @@ public class PlayerStats : GenericStats
     {
         currentLevel++;
         currentExperience -= currentExperienceCap;
+        xpBar.SetXP(currentExperience);
         UpdateExperienceCap();
         playerInventory.ObtainRandomSkills();
     }
@@ -61,6 +64,8 @@ public class PlayerStats : GenericStats
         if (currentLevel >= baseStats.LastLevel) return;
 
         currentExperience += amount;
+        xpBar.SetXP(currentExperience);
+        
         if (currentExperience >= currentExperienceCap)
         {
             LevelUp();
